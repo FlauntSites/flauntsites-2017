@@ -15,14 +15,9 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'httpflauntyoursite-com' ),
-				'after'  => '</div>',
-			) );
-		?>
+		<?php the_content(); ?>
+		
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>
@@ -31,7 +26,7 @@
 				edit_post_link(
 					sprintf(
 						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'httpflauntyoursite-com' ),
+						esc_html__( 'Edit %s', 'flauntsites2017' ),
 						the_title( '<span class="screen-reader-text">"', '"</span>', false )
 					),
 					'<span class="edit-link">',

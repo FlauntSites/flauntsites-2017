@@ -3,11 +3,11 @@ Theme Name: flauntsites-2017
 Theme URI: http://underscores.me/
 Author: William Bay
 Author URI: http://flauntyoursite.com
-Description: This is the Flaunt Sites theme.
+Description: Description.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: httpflauntyoursite-com
+Text Domain: flauntsites2017
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
@@ -95,12 +95,126 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "site/site";
 
+
 /*--------------------------------------------------------------
-# Infinite scroll
+# Media Query | Breakpoints
 --------------------------------------------------------------*/
-@import "modules/infinite-scroll";
+/*--------------------
+BASE (MOBILE) SIZE
+--------------------*/
+
+@import "breakpoints/base";
+
+/*--------------------
+TABLET & SMALLER LAPTOPS
+--------------------*/
+@media screen and (min-width: 40em) {
+
+	@import "breakpoints/40em-up";
+
+} // end of media query
+
+/*--------------------
+DESKTOP
+--------------------*/
+@media screen and (min-width: 64em) {
+
+	@import "breakpoints/64em-up"; 
+
+} // end of media query
+
+/*--------------------
+LARGE VIEWING SIZE
+--------------------*/
+
+@media only screen and (min-width: 90.063em) {
+
+	@import "breakpoints/90em-up";
+
+} // end of media query
+
+/*--------------------
+RETINA (2x RESOLUTION DEVICES)
+--------------------*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+
+	@import "breakpoints/2x";
+
+} // end of media query
+
+
+
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+
+.identity{
+	margin-left: 3%;
+} 
+
+.orange{
+	font-family: 'Julius Sans One', sans-serif;
+	color: #d64b26;
+	font-size: 2.5em;
+	float: left;
+}
+
+.by{
+	font-family: 'Julius Sans One', sans-serif;
+	color: #fff;
+	font-size: 22px;	
+}
+
+.logo{
+	margin-top: 1em;
+    float: left;
+	width:125px;
+}
+
+.page-id-701 .site-main{
+    margin:0 auto;
+    line-height: 1;
+	font-family: 'Nunito Sans', sans-serif;
+	width:80%;
+	color:#fff;
+}
+
+
+@media screen and (min-width: 40em) {
+
+
+	.identity{
+		float: right;
+		margin-right: 5%;
+	} 
+
+	.orange{
+		font-size: 4em;
+		float: left;
+	}
+
+	.by{
+		font-size: 36px;	
+	}
+
+	.logo{
+		margin-top: 2.25em;
+		float: left;
+		margin-left: 1em;
+	}
+
+	.page-id-701 .site-main{
+		float: right;
+		margin-right: 15%;
+		font-family: 'Nunito Sans', sans-serif;
+		width:20em;
+	}
+
+
+
+}

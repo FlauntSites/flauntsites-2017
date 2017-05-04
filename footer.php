@@ -15,9 +15,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'httpflauntyoursite-com' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'httpflauntyoursite-com' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'flauntsites2017' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'flauntsites2017' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'httpflauntyoursite-com' ), 'httpflauntyoursite-com', '<a href="https://automattic.com/" rel="designer">William Bay</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'flauntsites2017' ), 'flauntsites2017', '<a href="https://automattic.com/" rel="designer">William Bay</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

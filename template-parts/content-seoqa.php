@@ -44,4 +44,18 @@
 	<footer class="entry-footer">
 		<?php flauntsites2017_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "Question",
+			"dateCreated": "",
+			"text": "<?php the_title(); ?>",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "<?php the_content(); ?>"
+				}
+			}
+		}
+	</script>
 </article><!-- #post-## -->

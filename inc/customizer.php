@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function httpflauntyoursite_com_customize_register( $wp_customize ) {
+function flauntsites2017_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'httpflauntyoursite_com_customize_register' );
+add_action( 'customize_register', 'flauntsites2017_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function httpflauntyoursite_com_customize_preview_js() {
-	wp_enqueue_script( 'httpflauntyoursite_com_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function flauntsites2017_customize_preview_js() {
+	wp_enqueue_script( 'flauntsites2017_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'httpflauntyoursite_com_customize_preview_js' );
+add_action( 'customize_preview_init', 'flauntsites2017_customize_preview_js' );

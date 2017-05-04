@@ -15,15 +15,7 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) : the_post();
 						
-			// if ( is_post( 'home' ) ){
-
-			// 		get_template_part( 'template-parts/content', 'post-seoqa' );
-	
-			// }else{
-
-				get_template_part( 'template-parts/content', get_post_format() );
-			
-
+				get_template_part( 'template-parts/content-seoqa', get_post_format() );
 
 			the_post_navigation();
 

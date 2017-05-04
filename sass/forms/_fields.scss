@@ -14,10 +14,11 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
+	color: #fff!important;
+	border: 5px solid #d64b26;
+	border-radius: 5px;
 	padding: 3px;
+	background-color: rgba( 0,0,0,.4 );
 
 	&:focus {
 		color: $color__text-input-focus;
@@ -30,4 +31,38 @@ select {
 
 textarea {
 	width: 100%;
+}
+
+
+
+::-webkit-input-placeholder { 
+	color:#aaa; 
+}
+
+:-moz-placeholder { 
+	opacity: 1; 
+	color:#aaa; 
+} /* Firefox 18- */
+
+::-moz-placeholder { 
+	opacity: 1; 
+	color:#aaa; 
+} /* firefox 19+ */
+
+:-ms-input-placeholder { 
+	color:#aaa; 
+} /* ie */
+
+input:-moz-placeholder { 
+	color:#aaa; 
+}
+
+
+
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input, .gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+    margin-top: 0!important;
+}
+
+#label_1_2_1{
+	color:#fff;
 }
