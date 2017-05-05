@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.0.3
+Version: 0.0.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -182,6 +182,14 @@ RETINA (2x RESOLUTION DEVICES)
 	font-family: 'Nunito Sans', sans-serif;
 	width:80%;
 	color:#fff;
+}
+
+.page-content, .entry-content, .entry-summary {
+    margin: 1.5em 0 0;
+    padding: 1em;
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 1em;
 }
 
 div#prosites-signup-form-checkout{
