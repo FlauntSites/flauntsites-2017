@@ -4,7 +4,7 @@ Bitbucket Theme URI: https://FlauntYourSite@bitbucket.org/FlauntYourSite/flaunts
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.0.7
+Version: 0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -1107,13 +1107,17 @@ input[type="reset"],
 input[type="submit"] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
-  border-radius: 3px;
-  background: #e6e6e6;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 12px;
-  font-size: 0.75rem;
+  border-radius: 20px;
+  background: green;
+  color: #fff;
+  font-size: 22px;
+  font-size: 1.75rem;
   line-height: 1;
-  padding: .6em 1em .4em; }
+  padding: .5em 1em;
+  text-align: center;
+  width: 25%;
+  display: block;
+  margin: 0 auto; }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
@@ -1623,11 +1627,37 @@ object {
   width: 80%;
   color: #fff; }
 
-div#prosites-signup-form-checkout, .checkout-gateways {
+div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .site-main {
   background-color: rgba(255, 255, 255, 0.75);
   padding: 2em;
   border-radius: 1em;
   border: 1px solid #999; }
+
+.fa-chevron-circle-left {
+  margin-right: 1em;
+  font-size: 18px;
+  color: #fff; }
+
+.fa-chevron-circle-right {
+  margin-left: 1em;
+  font-size: 18px;
+  color: #fff; }
+
+.prev-post, .next-post {
+  padding: 1em;
+  background-color: #d64b26;
+  border: 1px solid #ccc;
+  border-radius: .5em; }
+  .prev-post a, .next-post a {
+    color: #fff; }
+    .prev-post a:hover, .next-post a:hover {
+      opacity: 0.75; }
+
+.prev-post {
+  float: left; }
+
+.next-post {
+  float: right; }
 
 @media screen and (min-width: 40em) {
   .identity {
@@ -1646,4 +1676,6 @@ div#prosites-signup-form-checkout, .checkout-gateways {
     float: right;
     margin-right: 15%;
     font-family: 'Nunito Sans', sans-serif;
-    width: 20em; } }
+    width: 20em; }
+  .vid-tut-col {
+    border-left: 1px solid #ccc; } }

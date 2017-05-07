@@ -726,6 +726,12 @@
 		"oAP": "\/single-seoqa.php",
 		"oF": 0
 		},
+	"\/single-tutorials.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/single-tutorials.php",
+		"oF": 0
+		},
 	"\/single.php": {
 		"ft": 8192,
 		"oA": 2,
@@ -764,6 +770,12 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/template-parts\/content-seoqa.php",
+		"oF": 0
+		},
+	"\/template-parts\/content-tutorials.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/template-parts\/content-tutorials.php",
 		"oF": 0
 		},
 	"\/template-parts\/content.php": {

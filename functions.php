@@ -71,17 +71,19 @@ function flauntsites2017_setup() {
 endif;
 add_action( 'after_setup_theme', 'flauntsites2017_setup' );
 
+
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
+ * REMOVES WP EMOJI
  */
-function flauntsites2017_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'flauntsites2017_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'flauntsites2017_content_width', 0 );
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+
+
+
 
 /**
  * Register widget area.
@@ -101,6 +103,9 @@ function flauntsites2017_widgets_init() {
 }
 add_action( 'widgets_init', 'flauntsites2017_widgets_init' );
 
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -116,6 +121,10 @@ function flauntsites2017_scripts() {
 	}
 
 	wp_enqueue_style('googleFonts','https://fonts.googleapis.com/css?family=Julius+Sans+One|Nunito+Sans:700');
+
+	//Adds Font Awesome icon support
+	wp_enqueue_script( 'fontAwesome', 'https://use.fontawesome.com/15483990a8.js' );
+
 
 }
 add_action( 'wp_enqueue_scripts', 'flauntsites2017_scripts' );
@@ -207,9 +216,185 @@ add_action( 'init', 'fs_seo_qa_post_type');
 
 
 
+
+
+
+
+// Register Custom Post Type
+function fs_tutorials_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Tutorials', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Tutorial', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Tutorials', 'text_domain' ),
+		'name_admin_bar'        => __( 'Tutorial', 'text_domain' ),
+		'archives'              => __( 'Tutorial Archives', 'text_domain' ),
+		'attributes'            => __( 'Tutorial Attributes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Tutorial:', 'text_domain' ),
+		'all_items'             => __( 'All Tutorials', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Tutorial', 'text_domain' ),
+		'add_new'               => __( 'Add New', 'text_domain' ),
+		'new_item'              => __( 'New Tutorial', 'text_domain' ),
+		'edit_item'             => __( 'Edit Tutorial', 'text_domain' ),
+		'update_item'           => __( 'Update Tutorial', 'text_domain' ),
+		'view_item'             => __( 'View Tutorial', 'text_domain' ),
+		'view_items'            => __( 'View Tutorials', 'text_domain' ),
+		'search_items'          => __( 'Search Tutorial', 'text_domain' ),
+		'not_found'             => __( 'Nothing here yet. How about adding some content?', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'featured_image'        => __( 'Featured Image', 'text_domain' ),
+		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+		'insert_into_item'      => __( 'Insert into Tutorial', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Tutorial', 'text_domain' ),
+		'items_list'            => __( 'Tutorials list', 'text_domain' ),
+		'items_list_navigation' => __( 'Tutorials list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter Tutorials list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Tutorial', 'text_domain' ),
+		'description'           => __( 'Tutorials on Flaunt Sites', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( ),
+		'taxonomies'            => array( 'lessons' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,		
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+	);
+	register_post_type( 'tutorials', $args );
+
+}
+
+add_action( 'init', 'fs_tutorials_post_type', 0 );
+
+
+/**
+ * Forces the Tutorial plugin to be Private by default.
+ * 
+ */
+
+register_taxonomy( 'lessons', 
+		array('tutorials'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array('hierarchical' => true,     /* if this is true, it acts like categories */
+			'labels' => array(
+				'name' => __( 'Lessons', 'bonestheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Lesson', 'bonestheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Lessons', 'bonestheme' ), /* search title for taxomony */
+				'all_items' => __( 'All Lessons', 'bonestheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Lesson', 'bonestheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Lesson:', 'bonestheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Lesson', 'bonestheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Lesson', 'bonestheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Lesson', 'bonestheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Lesson Name', 'bonestheme' ) /* name title for taxonomy */
+			),
+			'show_admin_column' => true, 
+			'show_ui' => true,
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'lessons' ),
+		)
+	);
+
+
+
+
+/**
+ * Forces the Tutorial plugin to be Private by default.
+ * 
+ */
+
+
+
+
+
+
+
+/**
+ * Removes "Private" from private posts.
+ * 
+ */
+
+function fs_the_title_trim($title) {
+
+	$title = attribute_escape($title);
+
+	$findthese = array(
+		'#Private:#'
+	);
+
+	$replacewith = array(
+		'' // What to replace "Private:" with
+	);
+
+	$title = preg_replace($findthese, $replacewith, $title);
+	return $title;
+}
+
+add_filter('the_title', 'fs_the_title_trim');
+
+
+
+
 /**
  * Enables placeholders in Gravity Forms
  * 
  */
 
 add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
+
+
+
+
+/**
+ * Adds and Styles Prev and Next buttons at end of posts.
+ * 
+ */
+
+
+function posts_link_attributes_1() {
+    return 'class="prev-post-link"';
+}
+add_filter('previous_posts_link_attributes', 'posts_link_attributes_1');
+
+
+
+function posts_link_attributes_2() {
+    return 'class="next-post-link"';
+}
+add_filter('next_posts_link_attributes', 'posts_link_attributes_2');
+
+
+
+
+
+function fs_next_post_links(){ ?>
+
+	<nav class="navigation posts-navigation" role="navigation">
+
+		<div class="nav-links">
+
+			<div class="prev-post">
+				<?php previous_post_link( '%link' ); ?>  
+			</div>
+
+			<div class="next-post">
+				<?php next_post_link( '%link' ); ?><i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			</div>
+
+		</div>
+
+	</nav>
+
+<?php }
+
