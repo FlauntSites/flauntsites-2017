@@ -80,9 +80,10 @@
 
 
 	</div>
-	
+	<div class="clear"></div>
 	<footer class="entry-footer">
 		<?php flauntsites2017_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+
 
 </article><!-- #post-## -->
