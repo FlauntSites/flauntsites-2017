@@ -385,7 +385,7 @@ function fs_next_post_links(){ ?>
 		<div class="nav-links">
 
 			<div class="prev-post">
-				<?php previous_post_link( '%link' ); ?>  
+				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i><?php previous_post_link( '%link' ); ?>  
 			</div>
 
 			<div class="next-post">
