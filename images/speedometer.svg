@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <g id="speedometer">
+    <path d="M240,0C107.45,0,0,107.45,0,240S107.45,480,240,480,480,372.55,480,240,372.49.15,240,0Zm0,464C116.29,464,16,363.71,16,240S116.29,16,240,16,464,116.29,464,240,363.65,463.86,240,464Z"/>
+    <path d="M240,32C125.12,32,32,125.12,32,240s93.12,208,208,208,208-93.12,208-208S354.82,32.13,240,32Zm0,400C134,432,48,346,48,240S134,48,240,48s192,86,192,192S346,431.88,240,432Z"/>
+    <rect x="56" y="232" width="32" height="16"/>
+    <rect x="392" y="232" width="32" height="16"/>
+    <rect x="78.5" y="316.02" width="32" height="16" transform="translate(-149.32 90.63) rotate(-29.99)"/>
+    <rect x="369.5" y="148" width="32" height="16" transform="translate(-26.36 213.6) rotate(-29.99)"/>
+    <rect x="86.51" y="140" width="16" height="32" transform="translate(-87.84 159.86) rotate(-60.01)"/>
+    <rect x="377.5" y="307.96" width="16" height="32" transform="translate(-87.78 495.9) rotate(-60.01)"/>
+    <rect x="147.97" y="78.51" width="16" height="32" transform="translate(-26.36 90.62) rotate(-29.99)"/>
+    <rect x="232" y="56" width="16" height="32"/>
+    <rect x="307.99" y="86.5" width="32" height="16" transform="translate(80.19 327.86) rotate(-60.01)"/>
+    <rect x="65.86" y="183.48" width="16" height="24" transform="translate(-134.07 216.22) rotate(-75)"/>
+    <rect x="398.08" y="272.5" width="16" height="24" transform="translate(26.18 603.12) rotate(-75)"/>
+    <rect x="110.38" y="106.38" width="16" height="24" transform="translate(-49.03 118.38) rotate(-45)"/>
+    <rect x="187.45" y="61.87" width="16" height="24" transform="translate(-12.46 53.1) rotate(-15)"/>
+    <rect x="272.5" y="65.91" width="24" height="16" transform="translate(139.48 329.59) rotate(-75)"/>
+    <rect x="349.62" y="110.4" width="24" height="16" transform="translate(22.2 290.38) rotate(-45)"/>
+    <rect x="394.18" y="187.48" width="24" height="16" transform="translate(-36.75 111.78) rotate(-15)"/>
+    <rect x="61.86" y="276.51" width="24" height="16" transform="translate(-71.12 28.81) rotate(-15)"/>
+    <path d="M273.94,108.37A136,136,0,0,0,122.2,308a8,8,0,0,0,13.85-8,120,120,0,1,1,220.17-30,8,8,0,1,0,15.5,4v0A136,136,0,0,0,273.94,108.37Z"/>
+    <path d="M272,320H208a40,40,0,0,0,0,80h64a40,40,0,0,0,0-80Zm0,64H208a24,24,0,0,1,0-48h64a24,24,0,0,1,0,48Z"/>
+    <path d="M224,352H208a8,8,0,0,0,0,16h16a8,8,0,0,0,0-16Z"/>
+    <path d="M272,352H256a8,8,0,0,0,0,16h16a8,8,0,0,0,0-16Z"/>
+  </g>
+  
+  <g id="dial" data-name="Layer 2">
+    <path d="M357.06,297.81l-88-72a7.58,7.58,0,0,0-.74-.4,31.91,31.91,0,1,0-30.24,46.4l111.2,39.72A8.1,8.1,0,0,0,352,312a8,8,0,0,0,5.06-14.19ZM240,256a16,16,0,1,1,16-16A16,16,0,0,1,240,256Zm21.8,7.3A31.87,31.87,0,0,0,270.87,248l40.33,33Z"/>
+  </g>
+</svg>

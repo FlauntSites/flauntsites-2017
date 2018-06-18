@@ -1,4 +1,6 @@
-p {
+p, figcaption {
+	font-family: $font__main;
+	font-weight: $font__weight;
 	margin-bottom: 1.5em;
 }
 

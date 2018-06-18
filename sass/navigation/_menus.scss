@@ -1,9 +1,6 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
 	border-radius: 0;
+	font-weight: $font__weight;
 
 	ul {
 		display: none;
@@ -36,14 +33,17 @@
 
 			a {
 				width: 200px;
+
 			}
 
 			:hover > a,
 			.focus > a {
+
 			}
 
 			a:hover,
 			a.focus {
+
 			}
 		}
 
@@ -57,15 +57,33 @@
 		float: left;
 		position: relative;
 
+
 		&:hover > a,
 		&.focus > a {
+			background: rgba(0,0,0,0.1);
+			background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.025) 0%, rgba(0,0,0,0.15) 100%);
+			background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0.025)), color-stop(100%, rgba(0,0,0,0.15)));
+			background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.025) 0%, rgba(0,0,0,0.15) 100%);
+			background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0.025) 0%, rgba(0,0,0,0.15) 100%);
+			background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0.025) 0%, rgba(0,0,0,0.15) 100%);
+			background: radial-gradient(ellipse at center, rgba(0,0,0,0.025) 0%, rgba(0,0,0,0.15) 100%);
+    		border: 1px solid rgba( 255,255,255, .125 );		
 		}
 	}
+
 
 	a {
 		display: block;
 		text-decoration: none;
+		color:#fff;
+		padding: .5em;
+		border: 1px solid transparent;		
 	}
+
+	.menu-cta a{
+		// background-color: rgba( 64, 120, 0, .5 );
+		// border: 1px solid rgba( 255, 255, 255, .125 );
+	} 	
 
 	.current_page_item > a,
 	.current-menu-item > a,
@@ -99,12 +117,10 @@
 	}
 
 	.nav-previous {
-		float: left;
 		width: 50%;
 	}
 
 	.nav-next {
-		float: right;
 		text-align: right;
 		width: 50%;
 	}

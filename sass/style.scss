@@ -154,24 +154,26 @@ RETINA (2x RESOLUTION DEVICES)
 
 
 .identity{
-	margin-left: 3%;
+	width:300px;
+
+
+		& a{
+			text-decoration: none;
+	}
 } 
 
 .orange{
 	font-family: 'Julius Sans One', sans-serif;
 	color: #d64b26;
-	font-size: 2.5em;
 	float: left;
 }
 
-.by{
+.white{
 	font-family: 'Julius Sans One', sans-serif;
 	color: #fff;
-	font-size: 22px;	
 }
 
 .logo{
-	margin-top: 1em;
     float: left;
 	width:125px;
 }
@@ -188,10 +190,9 @@ RETINA (2x RESOLUTION DEVICES)
 
 
 div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .site-main{
-	background-color: rgba(255, 255, 255, .75);
-	padding: 2em;
-	border-radius: 1em;
-	border: 1px solid #999
+	background-color: #fff;
+	padding-top:0;
+	margin-top:0;
 } 
 
 .fa-chevron-circle-left{
@@ -230,27 +231,6 @@ div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .sit
 }
 
 @media screen and (min-width: 40em) {
-
-
-	.identity{
-		float: right;
-		margin-right: 5%;
-	} 
-
-	.orange{
-		font-size: 4em;
-		float: left;
-	}
-
-	.by{
-		font-size: 36px;	
-	}
-
-	.logo{
-		margin-top: 2.25em;
-		float: left;
-		margin-left: 1em;
-	}
 
 	.page-id-16 .site-main{
 		float: right;

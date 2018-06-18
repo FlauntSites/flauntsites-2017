@@ -9,21 +9,12 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div class="content">
 
 		<?php
 		while ( have_posts() ) : the_post();
 						
-			// if ( is_post( 'home' ) ){
-
-			// 		get_template_part( 'template-parts/content', 'post-seoqa' );
-	
-			// }else{
-
 				get_template_part( 'template-parts/content', get_post_format() );
-			
-
 
 			the_post_navigation();
 
@@ -35,9 +26,8 @@ get_header(); ?>
 		endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+
 get_footer();

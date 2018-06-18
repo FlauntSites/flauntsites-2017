@@ -27,7 +27,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
+		<!-- <?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'flauntsites2017' ), array( 'span' => array( 'class' => array() ) ) ),
@@ -38,7 +38,7 @@
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'flauntsites2017' ),
 				'after'  => '</div>',
 			) );
-		?>
+		?> -->
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

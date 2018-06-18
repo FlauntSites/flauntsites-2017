@@ -1,0 +1,1 @@
+for(var planTier=document.getElementsByClassName("plan-tier"),i=0;i<planTier.length;i++)planTier[i].classList.remove("lift");

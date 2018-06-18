@@ -84,28 +84,6 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 
 
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function flauntsites2017_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'flauntsites2017' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'flauntsites2017' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'flauntsites2017_widgets_init' );
-
-
-
-
 /**
  * Enqueue scripts and styles.
  */
@@ -116,14 +94,40 @@ function flauntsites2017_scripts() {
 
 	wp_enqueue_script( 'flauntsites2017-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+
+	//Adds Swiper Slider Styles
+	wp_enqueue_style( 'swiper_styles', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.min.css' );
+	//Adds Swiper Slider Scripts
+	wp_enqueue_script( 'swiper_scripts', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js', array(), '20180522', false );
+
+	//Adds Greensock Support
+	wp_enqueue_script( 'greensock', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', true);  
+
+	//Adds Scrollmagik support
+	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array('jquery'), '20180522' );
+	wp_enqueue_script( 'scrollmagic_indicators', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array(), '20180522' );
+	wp_enqueue_script( 'scrollmagic_gsap_support', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array('jquery'), '20180522' );
+
+
+	wp_enqueue_script( 'flauntsites2017-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
+	wp_enqueue_script( 'plan-fix', get_template_directory_uri() . '/js/plan-fix.js', array(), '20151215', true );
+	
+	if ( is_front_page() ){
+		wp_enqueue_script( 'flauntsites2017-hero', get_template_directory_uri() . '/js/hero-min.js', array(), '20151215', true );
+	}
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_style('googleFonts','https://fonts.googleapis.com/css?family=Julius+Sans+One|Nunito+Sans:700');
+	wp_enqueue_style('googleFonts','https://fonts.googleapis.com/css?family=Julius+Sans+One|Nunito+Sans:700|Roboto:100i,300,300i,400,400i|Trirong:400,500,600,800,900');
+
 
 	//Adds Font Awesome icon support
 	wp_enqueue_script( 'fontAwesome', 'https://use.fontawesome.com/15483990a8.js' );
+
+	// experimental test for SEO Q+A Rest project.
+	wp_enqueue_script( 'flauntsites2017-app', get_template_directory_uri() . '/js/data.js', array(), '20151215', true );
 
 
 }
@@ -154,8 +158,15 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Include the Widget locations
+ */
+ require get_template_directory() . '/inc/widgets.php';
 
-
+/**
+ * Include the Competitor List function
+ */
+require get_template_directory() . '/inc/competitor-list.php';
 
 
 
@@ -201,11 +212,14 @@ function fs_seo_qa_post_type() {
 			'menu_position' => 7, /* this is what order you want it to appear in on the left hand side menu */
 			'menu_icon' => 'dashicons-format-chat', /* the icon for the custom post type menu */
 			'rewrite'	=> array( 'slug' => 'qa', 'with_front' => true ), /* you can specify its url slug */
-			'has_archive' => false, /* you can rename the slug here */
+			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions')
+			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions'),
+			'show_in_rest'	=> true,
+			'rest_base'          	=> 'seoqa',
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
 		)
 	);
 
@@ -216,6 +230,105 @@ add_action( 'init', 'fs_seo_qa_post_type');
 
 
 
+/**
+ * Sets up the Themes Post Type
+ * 
+ */
+
+ function fs_themes_post_type() {
+	
+		register_post_type( 'themes',
+	
+			array( 'labels' => array(
+				'name' => __( 'Themes', 'flaunt_sites_core' ), /* This is the Title of the Group */
+				'singular_name' => __( 'Theme', 'flaunt_sites_core' ), /* This is the individual type */
+				'all_items' => __( 'All Custom Themes', 'flaunt_sites_core' ), /* the all items menu item */
+				'add_new' => __( 'Add New', 'flaunt_sites_core' ), /* The add new menu item */
+				'add_new_item' => __( 'Add New Theme', 'flaunt_sites_core' ), /* Add New Display Title */
+				'edit' => __( 'Edit', 'flaunt_sites_core' ), /* Edit Dialog */
+				'edit_item' => __( 'Edit Theme', 'flaunt_sites_core' ), /* Edit Display Title */
+				'new_item' => __( 'New Theme', 'flaunt_sites_core' ), /* New Display Title */
+				'view_item' => __( 'View Theme', 'flaunt_sites_core' ), /* View Display Title */
+				'search_items' => __( 'Search Themes', 'flaunt_sites_core' ), /* Search Custom Type Title */
+				'not_found' =>  __( 'Nothing found in the Database.', 'flaunt_sites_core' ), /* This displays if there are no entries yet */
+				'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
+				'parent_item_colon' => ''
+				), /* end of arrays */
+				'description' => __( 'This is the example Theme', 'flaunt_sites_core' ), /* Custom Type Description */
+				'public' => true,
+				'publicly_queryable' => true,
+				'exclude_from_search' => true,
+				'show_ui' => true,
+				'query_var' => true,
+				'menu_position' => 7, /* this is what order you want it to appear in on the left hand side menu */
+				'menu_icon' => 'dashicons-welcome-widgets-menus', /* the icon for the custom post type menu */
+				'rewrite'	=> array( 'slug' => 'themes', 'with_front' => true ), /* you can specify its url slug */
+				'has_archive' => true, /* you can rename the slug here */
+				'capability_type' => 'post',
+				'hierarchical' => false,
+				/* the next one is important, it tells what's enabled in the post editor */
+				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions'),
+				'show_in_rest'	=> true,
+				'rest_base'          	=> 'themes',
+				'rest_controller_class' => 'WP_REST_Posts_Controller',
+			)
+		);
+	
+		register_taxonomy_for_object_type( 'category', 'themes' );
+	
+	}
+	add_action( 'init', 'fs_themes_post_type');
+	
+	
+
+
+/**
+ * Sets up the Competitors Post Type
+ * 
+ */
+
+function fs_competitor_post_type() {
+	
+	register_post_type( 'competitors',
+
+		array( 'labels' => array(
+			'name' => __( 'Competitors', 'flaunt_sites_core' ), /* This is the Title of the Group */
+			'singular_name' => __( 'Competitor', 'flaunt_sites_core' ), /* This is the individual type */
+			'all_items' => __( 'All Custom Competitors', 'flaunt_sites_core' ), /* the all items menu item */
+			'add_new' => __( 'Add New', 'flaunt_sites_core' ), /* The add new menu item */
+			'add_new_item' => __( 'Add New Competitor', 'flaunt_sites_core' ), /* Add New Display Title */
+			'edit' => __( 'Edit', 'flaunt_sites_core' ), /* Edit Dialog */
+			'edit_item' => __( 'Edit Competitor', 'flaunt_sites_core' ), /* Edit Display Title */
+			'new_item' => __( 'New Competitor', 'flaunt_sites_core' ), /* New Display Title */
+			'view_item' => __( 'View Competitor', 'flaunt_sites_core' ), /* View Display Title */
+			'search_items' => __( 'Search Competitors', 'flaunt_sites_core' ), /* Search Custom Type Title */
+			'not_found' =>  __( 'Nothing found in the Database.', 'flaunt_sites_core' ), /* This displays if there are no entries yet */
+			'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
+			'parent_item_colon' => ''
+			), /* end of arrays */
+			'description' => __( 'This is the example Competitor', 'flaunt_sites_core' ), /* Custom Type Description */
+			'public' => true,
+			'publicly_queryable' => true,
+			'exclude_from_search' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_position' => 7, /* this is what order you want it to appear in on the left hand side menu */
+			'menu_icon' => 'dashicons-welcome-view-site', /* the icon for the custom post type menu */
+			'rewrite'	=> array( 'slug' => 'competitors', 'with_front' => true ), /* you can specify its url slug */
+			'has_archive' => false, /* you can rename the slug here */
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			/* the next one is important, it tells what's enabled in the post editor */
+			'supports' => array( 'title', 'author', 'thumbnail', 'revisions'),
+			'show_in_rest'	=> true,
+			'rest_base'          	=> 'competitors',
+			'rest_controller_class' => 'WP_REST_Posts_Controller',
+		)
+	);
+
+
+}
+add_action( 'init', 'fs_competitor_post_type');
 
 
 
@@ -270,6 +383,10 @@ function fs_tutorials_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
+		'show_in_rest'			=> true,
+		'rest_base'          	=> 'tutorial',
+  		'rest_controller_class' => 'WP_REST_Posts_Controller',
+
 	);
 	register_post_type( 'tutorials', $args );
 
@@ -319,7 +436,7 @@ register_taxonomy( 'lessons',
 
 function fs_the_title_trim($title) {
 
-	$title = attribute_escape($title);
+	$title = esc_attr($title);
 
 	$findthese = array(
 		'#Private:#'
@@ -458,3 +575,22 @@ acf_add_local_field_group(array (
 ));
 
 endif;
+
+
+
+function fsc_res_bg_img( $image ){
+	
+	/**
+	* Let plugins pre-filter the image meta to be able to fix inconsistencies in the stored data.
+	*
+	* @param string 		$image    			The ACF field name (i.e. 'your_photo_name').
+	* @param string  		$size    				Thumbnail size (i.e. 'Thumbnail', 'Medium', 'Large')
+	*/
+
+	$image = get_field( $image );
+	$size = $size;
+	$thumb = $image['sizes'][ $size ];
+		
+	echo wp_get_attachment_image( $image['ID'], $size, false, array( 'alt' => $image['alt'] ) );  
+
+}

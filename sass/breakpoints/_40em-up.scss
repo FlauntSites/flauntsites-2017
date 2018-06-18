@@ -12,11 +12,29 @@ come into play. Have fun!
 
 ******************************************************************/
 
-/*********************
-GENERAL STYLES
-*********************/
+.inner-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: .75em 1em;
+}
 
+/**********************
+    PLANS GRID
+***********************/
 
-/*********************
-LAYOUT & GRID STYLES
-*********************/
+.wu-content-plan{
+    .plan-tier{
+        width:48%!important;
+    }
+}
+
+/**********************
+    COMPETITOR GRID
+***********************/
+.competitor-grid{
+    .competitor{
+        width: 48%;
+    }
+}
