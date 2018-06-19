@@ -114,6 +114,8 @@ function flauntsites2017_scripts() {
 	
 	if ( is_front_page() ){
 		wp_enqueue_script( 'flauntsites2017-hero', get_template_directory_uri() . '/js/hero-min.js', array(), '20151215', true );
+		wp_enqueue_script( 'flauntsites2017-home', get_template_directory_uri() . '/js/home-min.js', array(), '20180618', true );
+
 	}
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
