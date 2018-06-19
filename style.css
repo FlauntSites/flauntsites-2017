@@ -1476,7 +1476,9 @@ CONTENT
 .content {
   width: 80%;
   max-width: 1024px;
-  margin: 12em auto; }
+  margin: 12em auto;
+  position: relative;
+  z-index: 1000; }
 
 /***********
     Sections
@@ -1664,7 +1666,9 @@ section {
 .site-footer {
   background-color: #111;
   padding: 0 6%;
-  color: #aaa; }
+  color: #aaa;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.5); }
   .site-footer .footer-identity {
     width: 300px;
     margin: 0 auto;
@@ -1709,6 +1713,7 @@ section {
   font-family: 'Julius Sans One', sans-serif;
   color: #d64b26;
   position: fixed;
+  z-index: 1000;
   bottom: 16px;
   height: 57px;
   width: 420px;

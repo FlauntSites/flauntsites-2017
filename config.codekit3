@@ -305,6 +305,16 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/js\/home.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/home-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/js\/navigation.js": {
 		"ft": 64,
 		"ma": 0,
