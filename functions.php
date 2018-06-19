@@ -123,16 +123,8 @@ function flauntsites2017_scripts() {
 	}
 
 	wp_enqueue_style('googleFonts','https://fonts.googleapis.com/css?family=Julius+Sans+One|Nunito+Sans:700|Roboto:100i,300,300i,400,400i|Trirong:400,500,600,800,900');
-
-
-	//Adds Font Awesome icon support
-	wp_enqueue_script( 'fontAwesome', 'https://use.fontawesome.com/15483990a8.js' );
-
-	// experimental test for SEO Q+A Rest project.
-	wp_enqueue_script( 'flauntsites2017-app', get_template_directory_uri() . '/js/data.js', array(), '20151215', true );
-
-
 }
+
 add_action( 'wp_enqueue_scripts', 'flauntsites2017_scripts' );
 
 /**
