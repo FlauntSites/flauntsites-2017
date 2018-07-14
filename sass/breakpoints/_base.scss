@@ -107,6 +107,14 @@ Header
             position: fixed;
             background: rgba(0,0,0,.5);
         }
+
+        .identity{
+            width:210px;
+                & a{
+                    text-decoration: none;
+            }
+        } 
+
     }
 
 }

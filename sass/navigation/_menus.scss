@@ -102,7 +102,22 @@
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
+	border: none;
+	background: none;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: space-between;
+	
+	.hamburger{
+		width: 30px;
+		height: 32px;
+	}
+
+	&:hover{
+		background: none;
+	}
+
 }
 
 @media screen and (min-width: 40em) {

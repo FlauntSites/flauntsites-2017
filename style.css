@@ -1296,7 +1296,28 @@ a {
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
-  display: block; }
+  border: none;
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .menu-toggle .hamburger,
+  .main-navigation.toggled ul .hamburger {
+    width: 30px;
+    height: 32px; }
+  .menu-toggle:hover,
+  .main-navigation.toggled ul:hover {
+    background: none; }
 
 @media screen and (min-width: 40em) {
   .menu-toggle {
@@ -1528,6 +1549,10 @@ Header
     .site-header .inner-header .scroll {
       position: fixed;
       background: rgba(0, 0, 0, 0.5); }
+    .site-header .inner-header .identity {
+      width: 210px; }
+      .site-header .inner-header .identity a {
+        text-decoration: none; }
 
 #highlight-one, #highlight-two {
   visibility: hidden; }
@@ -2091,6 +2116,8 @@ and other resources. You'll also notice the grid starts to
 come into play. Have fun!
 
 ******************************************************************/
+  .site-header .inner-header .identity {
+    width: 300px; }
   #hero .hero-cta {
     width: 35%;
     padding-right: 5%; }
@@ -2260,11 +2287,6 @@ object {
 
 .gallery-caption {
   display: block; }
-
-.identity {
-  width: 300px; }
-  .identity a {
-    text-decoration: none; }
 
 .orange {
   font-family: 'Julius Sans One', sans-serif;
