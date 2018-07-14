@@ -1568,7 +1568,8 @@ section {
     position: relative;
     z-index: 10;
     text-align: center;
-    margin: 0 auto; }
+    margin: 0 auto;
+    max-width: 60ch; }
   section h1, section h2, section p {
     color: #fff; }
   section .photo-credit {
