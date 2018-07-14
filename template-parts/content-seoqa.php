@@ -9,7 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php the_permalink( ); ?>">
+	
+	<?php if( !is_single() ) {
+
+		the_post_thumbnail( 'thumbnail', array( 'class' => 'archive-thumb' ) );
+
+	}; ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
@@ -26,36 +33,49 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<!-- <?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'flauntsites2017' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+	<?php if ( is_single() ) : { ?>
+		<div class="entry-content">
+			<?php
+				the_content( sprintf(
+					/* translators: %s: Name of current post. */
+					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'flauntsites2017' ), array( 'span' => array( 'class' => array() ) ) ),
+					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				) );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'flauntsites2017' ),
-				'after'  => '</div>',
-			) );
-		?> -->
-	</div><!-- .entry-content -->
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'flauntsites2017' ),
+					'after'  => '</div>',
+				) );
+			?>
+		</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php flauntsites2017_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+		<footer class="entry-footer">
+			<?php flauntsites2017_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
 
-	<script type="application/ld+json">
-		{
-			"@context": "http://schema.org",
-			"@type": "Question",
-			"dateCreated": "",
-			"text": "<?php the_title(); ?>",
-			"acceptedAnswer": {
-				"@type": "Answer",
-				"text": "<?php the_content(); ?>"
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "Question",
+				"dateCreated": "",
+				"text": "<?php the_title(); ?>",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "<?php the_content(); ?>"
+					}
 				}
 			}
-		}
-	</script>
+		</script>
+	<?php } else: { ?>
+
+		<footer class="entry-footer">
+			<div>
+				<p>Did this help you?</p>
+			</div>
+		<?php flauntsites2017_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+
+	<?php } ?>
+	<?php endif; ?>
+
 </article><!-- #post-## -->

@@ -12,12 +12,13 @@ come into play. Have fun!
 
 ******************************************************************/
 
-.inner-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: .75em 1em;
+
+#hero{
+    .hero-cta{
+        width: 35%;
+        padding-right:5%; 
+
+    }   
 }
 
 /**********************
@@ -37,4 +38,9 @@ come into play. Have fun!
     .competitor{
         width: 48%;
     }
+}
+
+
+.site-info{
+    padding: 1em 7em;
 }

@@ -1,4 +1,4 @@
-<svg id="006-browser" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 431.84">
+<svg id="006-browser" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 431.84" fill="rgba(255,255,255,.9)">
   <title>006-browser</title>
   <polygon points="496.97 111.72 496.97 416.81 63.62 416.81 63.62 431.84 512 431.84 512 111.72 496.97 111.72"/>
   <path d="M0,40.08V471.92H47.59v-15H15V119.23H497v16.53h15V40.08ZM497,104.2H15V55.11H497V104.2Z" transform="translate(0 -40.08)"/>

@@ -4,7 +4,7 @@ Bitbucket Theme URI: https://FlauntYourSite@bitbucket.org/FlauntYourSite/flaunts
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.1.4
+Version: 0.1.5
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -248,6 +248,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
   font-size: 300%; }
+
+h3 {
+  font-size: 225%; }
+
+h4 {
+  font-size: 150%; }
 
 p, figcaption {
   font-family: "Roboto", Helvetica, sans-serif;
@@ -1123,12 +1129,32 @@ input[type="submit"] {
   font-family: "Roboto", Helvetica, sans-serif;
   font-weight: 100;
   font-style: italic;
-  background: #d64b26;
+  border: 3px solid #d64b26;
   color: #fff;
   font-size: 22px;
   line-height: 1;
-  padding: .5em 1em;
-  text-align: center; }
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  text-decoration: none;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0.15) 100%); }
+  .btn-solid:hover, .btn-open:hover,
+  button:hover,
+  input[type="button"]:hover,
+  input[type="reset"]:hover,
+  input[type="submit"]:hover {
+    color: #fff;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.325) 0%, rgba(0, 0, 0, 0.315) 100%); }
 
 input[type="text"],
 input[type="email"],
@@ -1209,8 +1235,6 @@ input:-moz-placeholder {
 --------------------------------------------------------------*/
 a {
   color: #aaa; }
-  a:visited {
-    color: #aaa; }
   a:hover, a:focus, a:active {
     color: #d64b26; }
   a:focus {
@@ -1264,6 +1288,10 @@ a {
     color: #fff;
     padding: .5em;
     border: 1px solid transparent; }
+  .main-navigation .cta a:hover, .main-navigation .cta-scroll {
+    background: rgba(0, 0, 0, 0.1);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.025) 0%, rgba(0, 0, 0, 0.15) 100%);
+    border: 1px solid #d64b26; }
 
 /* Small menu. */
 .menu-toggle,
@@ -1431,6 +1459,34 @@ body.single-seoqa, body.post-type-archive-seoqa {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#043953', endColorstr='#841C00',GradientType=1 );
   /* ie6-9 */
   background-attachment: fixed; }
+  body.single-seoqa h2, body.post-type-archive-seoqa h2 {
+    font-size: 100%; }
+  body.single-seoqa section, body.post-type-archive-seoqa section {
+    height: inherit;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3em; }
+
+.hentry, .page-header {
+  background-color: #fff;
+  position: relative;
+  padding-top: 2em;
+  margin-bottom: 0;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75); }
+  .hentry .archive-thumb, .page-header .archive-thumb {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 75px;
+    border-radius: 100%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75); }
+  .hentry .entry-footer, .page-header .entry-footer {
+    width: 100%;
+    background-color: #aaa; }
 
 body.page {
   background: #4c0001;
@@ -1443,6 +1499,10 @@ body.page {
   /* IE6-9 fallback on horizontal gradient */
   background-attachment: fixed; }
 
+body.single-themes {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#262829), color-stop(#005860), color-stop(#008d75), color-stop(#12c061), to(#a8eb12));
+  background-image: linear-gradient(to right top, #262829, #005860, #008d75, #12c061, #a8eb12); }
+
 /*********************
 GENERAL STYLES
 *********************/
@@ -1451,9 +1511,26 @@ Header
 ******/
 .site-header {
   position: absolute;
-  z-index: 100;
+  z-index: 1000000;
   width: 100%;
   top: 0; }
+  .site-header .inner-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: .75em 1em; }
+    .site-header .inner-header .scroll {
+      position: fixed;
+      background: rgba(0, 0, 0, 0.5); }
+
+#highlight-one, #highlight-two {
+  visibility: hidden; }
 
 .stripes-container {
   float: left;
@@ -1491,12 +1568,20 @@ section {
     position: relative;
     z-index: 10;
     text-align: center;
-    margin: 0 auto;
-    width: 80ch; }
-    section header .white {
-      color: #fff; }
+    margin: 0 auto; }
   section h1, section h2, section p {
     color: #fff; }
+  section .photo-credit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    font-weight: 100;
+    margin: 5px; }
+    section .photo-credit a {
+      color: rgba(255, 255, 255, 0.2); }
+      section .photo-credit a:hover {
+        color: rgba(255, 255, 255, 0.3); }
 
 .tint {
   background-color: rgba(0, 0, 0, 0.7);
@@ -1538,31 +1623,30 @@ section {
       -ms-flex-align: center;
           align-items: center; }
   .features div {
-    width: 22%;
+    width: 18%;
     text-align: center; }
 
 #hero {
-  grid-template-columns: 1fr 45%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  #hero .hero-cta .cta-message {
-    grid-area: header; }
-  #hero .hero-cta .btn-open {
-    grid-area: cta1; }
-  #hero .hero-cta .btn-closed {
-    grid-area: cta2; }
+  #hero .responsive-bg {
+    left: -100px; }
+  #hero .hero-cta {
+    width: 60%;
+    padding-right: 3%; }
+    #hero .hero-cta .cta-message {
+      grid-area: header; }
 
 #what-we-do {
-  /* ff3.6+ */
-  /* safari4+,chrome */
-  /* safari5.1+,chrome10+ */
-  /* opera 11.10+ */
-  /* ie10+ */
-  background: linear-gradient(136deg, #043953 0%, #841c00 100%);
-  /* w3c */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#043953', endColorstr='#841C00',GradientType=1 );
-  /* ie6-9 */ }
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#15263f), color-stop(#3e2950), color-stop(#6c244a), color-stop(#8b2a30), to(#8e4700));
+  background-image: linear-gradient(to left top, #15263f, #3e2950, #6c244a, #8b2a30, #8e4700); }
   #what-we-do .wwd-grid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1579,7 +1663,7 @@ section {
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 3em;
       grid-row-gap: 1em; }
-      #what-we-do .wwd-grid .wwd-matrix div {
+      #what-we-do .wwd-grid .wwd-matrix a {
         width: 100%;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1594,8 +1678,9 @@ section {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
                 justify-content: space-between;
-        fill: #fff; }
-        #what-we-do .wwd-grid .wwd-matrix div svg {
+        fill: #fff;
+        text-decoration: none; }
+        #what-we-do .wwd-grid .wwd-matrix a svg {
           width: 50%;
           height: auto; }
 
@@ -1619,8 +1704,45 @@ section {
     width: auto;
     -webkit-box-shadow: 0px 0px 1.5em 1px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 1.5em 1px rgba(0, 0, 0, 0.5); }
+  #themes .theme-carousel .theme-carousel-slide .coming-soon-theme {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    #themes .theme-carousel .theme-carousel-slide .coming-soon-theme h2 {
+      padding: 0; }
+    #themes .theme-carousel .theme-carousel-slide .coming-soon-theme .coming-soon-bolt {
+      width: 50px; }
+
+#who-we-serve {
+  background-image: none;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#044050), color-stop(#1f5a61), color-stop(#3d7471), color-stop(#5e8e7f), to(#84a88d));
+  background-image: linear-gradient(to left bottom, #044050, #1f5a61, #3d7471, #5e8e7f, #84a88d);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30vh 70vh; }
+  #who-we-serve .rain-div {
+    overflow: hidden;
+    position: relative; }
+    #who-we-serve .rain-div .horizontal-rain {
+      position: absolute;
+      left: -20vw;
+      text-shadow: 2px 2px 10px rgba(50, 50, 50, 0.65); }
 
 #seo {
+  background: none; }
+
+#seo-color {
   background-image: none;
   /* ff3.6+ */
   /* safari4+,chrome */
@@ -1633,6 +1755,59 @@ section {
   /* ie6-9 */
   background-attachment: fixed; }
 
+#speed-hosting {
+  background: none; }
+
+#price-breakdown {
+  background-image: none;
+  background-image: -webkit-gradient(linear, right top, left bottom, from(#360033), color-stop(#2e295c), color-stop(#014a7b), color-stop(#00698c), to(#0b8793));
+  background-image: linear-gradient(to left bottom, #360033, #2e295c, #014a7b, #00698c, #0b8793); }
+  #price-breakdown .price-grid {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center; }
+    #price-breakdown .price-grid .flaunt-price {
+      font-size: 200%; }
+    #price-breakdown .price-grid .comp-price {
+      font-size: 225%;
+      font-weight: bold; }
+    #price-breakdown .price-grid .braces {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      #price-breakdown .price-grid .braces .big-brace {
+        -ms-flex-item-align: center;
+            align-self: center;
+        justify-self: center;
+        font-size: 800%; }
+      #price-breakdown .price-grid .braces ul {
+        margin: 0;
+        padding: 0;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        list-style: none;
+        font-size: 125%; }
+
+#security {
+  background: none; }
+
 #security-support {
   background: #72002c;
   background: -webkit-gradient(left bottom, right top, color-stop(0%, #72002c), color-stop(100%, #844600));
@@ -1640,10 +1815,9 @@ section {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#72002c', endColorstr='#844600', GradientType=1 ); }
 
 #partners {
-  background: #72002c;
-  background: -webkit-gradient(left bottom, right top, color-stop(0%, #72002c), color-stop(100%, #844600));
-  background: linear-gradient(45deg, #72002c 0%, #844600 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#72002c', endColorstr='#844600', GradientType=1 ); }
+  background-image: none;
+  background: -webkit-gradient(linear, right top, left bottom, from(#360033), color-stop(#2e295c), color-stop(#014a7b), color-stop(#00698c), to(#0b8793));
+  background: linear-gradient(to left bottom, #360033, #2e295c, #014a7b, #00698c, #0b8793); }
   #partners .partner-carousel {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1663,6 +1837,10 @@ section {
       #partners .partner-carousel figure figcaption {
         color: #fff; }
 
+.cta-signup {
+  background: none;
+  height: 40vh; }
+
 .site-footer {
   background-color: #111;
   padding: 0 6%;
@@ -1675,48 +1853,36 @@ section {
     padding: 1.5em 0 0;
     text-align: center; }
   .site-footer .footer-widgets {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 80%;
     margin: 0 auto; }
     .site-footer .footer-widgets .widget {
       list-style: none;
-      padding: .25em;
-      width: -webkit-max-content;
-      width: -moz-max-content;
-      width: max-content; }
-      .site-footer .footer-widgets .widget li {
-        width: -webkit-max-content;
-        width: -moz-max-content;
-        width: max-content; }
-        .site-footer .footer-widgets .widget li .widgettitle {
-          margin: 0;
-          font-size: 150%;
-          padding: 0; }
-        .site-footer .footer-widgets .widget li ul {
-          list-style: none;
-          margin: 0;
-          padding-left: 0; }
-          .site-footer .footer-widgets .widget li ul li {
-            font-weight: 100; }
-            .site-footer .footer-widgets .widget li ul li a:hover {
-              color: #d64b26; }
+      padding: .25em; }
+      .site-footer .footer-widgets .widget li .widgettitle {
+        margin: 0;
+        font-size: 150%;
+        padding: 0; }
+      .site-footer .footer-widgets .widget li ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0; }
+        .site-footer .footer-widgets .widget li ul li {
+          font-weight: 100; }
+          .site-footer .footer-widgets .widget li ul li a:hover {
+            color: #d64b26; }
 
 .chat-message {
+  visibility: hidden;
   background-color: rgba(255, 255, 255, 0.85);
   font-family: 'Julius Sans One', sans-serif;
   color: #d64b26;
   position: fixed;
   z-index: 1000;
   bottom: 16px;
-  height: 57px;
-  width: 420px;
+  height: 0;
+  width: 0;
   right: 17px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1772,8 +1938,11 @@ section {
           transform: translateX(-50%);
   width: 100%;
   bottom: 0; }
+  .wu-content-plan .wu-cta button {
+    background: #d64b26;
+    margin: 0 auto; }
 
-#plan-64:after, #plan-65:after {
+#plan-5:after, #plan-64:after, #plan-65:after {
   content: "Coming Soon";
   padding-top: 8em;
   font-size: 150%;
@@ -1786,6 +1955,16 @@ section {
   right: 0;
   bottom: 0;
   left: 0; }
+
+#plan-363 h5:after {
+  content: "_________";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: -20px;
+  font-size: 220%;
+  color: #d64b26; }
 
 /**********************
     COMPETITOR GRID
@@ -1860,6 +2039,40 @@ section {
 #competitor-speed-five {
   background-color: rgba(100, 0, 0, 0.9); }
 
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em; }
+  .theme-grid .theme-image img {
+    -webkit-box-shadow: 0px 0px 1.5em 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 1.5em 1px rgba(0, 0, 0, 0.5); }
+  .theme-grid .theme-content header {
+    width: initial;
+    text-align: center; }
+    .theme-grid .theme-content header .globe {
+      width: 25px;
+      position: absolute;
+      margin-left: 10px; }
+    .theme-grid .theme-content header .thanks {
+      font-size: 90%;
+      font-weight: 100;
+      font-family: "Roboto", Helvetica, sans-serif;
+      color: #555; }
+      .theme-grid .theme-content header .thanks a {
+        color: #d64b26; }
+        .theme-grid .theme-content header .thanks a:hover {
+          -webkit-filter: brightness(80%);
+                  filter: brightness(80%); }
+
+.surf-break-modal {
+  background: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: -100vw; }
+
 /*--------------------
 TABLET & SMALLER LAPTOPS
 --------------------*/
@@ -1877,19 +2090,9 @@ and other resources. You'll also notice the grid starts to
 come into play. Have fun!
 
 ******************************************************************/
-  .inner-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: .75em 1em; }
+  #hero .hero-cta {
+    width: 35%;
+    padding-right: 5%; }
   /**********************
     PLANS GRID
 ***********************/
@@ -1899,7 +2102,9 @@ come into play. Have fun!
     COMPETITOR GRID
 ***********************/
   .competitor-grid .competitor {
-    width: 48%; } }
+    width: 48%; }
+  .site-info {
+    padding: 1em 7em; } }
 
 /*--------------------
 DESKTOP
@@ -1921,7 +2126,7 @@ be seen on the Desktop.
     PLANS GRID
 ***********************/
   .wu-content-plan .plan-tier {
-    width: 22.5% !important; }
+    width: 30% !important; }
   /**********************
     COMPETITOR GRID
 ***********************/

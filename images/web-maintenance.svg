@@ -1,4 +1,4 @@
-<svg id="web-maintenance" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg id="web-maintenance" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="rgba(255,255,255,.9)">
   <title>web-maintenance</title>
   <path d="M512,416.31V96.19H463.91V0H71.64V15H448.88V48.09H15V15H55.61V0H0V415.81H48.09V512H512V432.34H497V497H63.12V159.31H497v257ZM48.09,96.19V400.78H15V63.12H448.88V96.19Zm15,48.09V111.22H497v33.06Z"/>
   <rect x="39.58" y="24.05" width="16.03" height="15.03"/>

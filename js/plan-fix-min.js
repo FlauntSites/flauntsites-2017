@@ -1,1 +1,1 @@
-for(var planTier=document.getElementsByClassName("plan-tier"),i=0;i<planTier.length;i++)planTier[i].classList.remove("lift");
+for(var planTier=document.getElementsByClassName("plan-tier"),i=0;i<planTier.length;i++)planTier[i].classList.remove("lift");const bluDomainSpecial=function(){const e=document.querySelector("#plan-363 h5"),t=document.createElement("p");t.innerText="One Year Free!",e.appendChild(t),t.style="position:absolute; left:50%; transform:translate(32%, -72px) rotate(21deg); font-size:85%; font-weight:400;"};bluDomainSpecial();

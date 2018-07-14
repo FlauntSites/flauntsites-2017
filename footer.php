@@ -16,9 +16,9 @@
 
 			<div class="footer-identity">
 				<a href="<?php echo home_url( '/' ); ?>" title="Web design, Hosting and SEO for Professional Photographers" >
-					<img src="https://flauntsites.local/wp-content/uploads/2017/10/flauntsiteslogo.svg" />
+					<?php require( 'images/flauntsiteslogo.svg' ); ?>
 				</a>
-				<p>Photography Websites, Simplified</p>
+				<p>Photography Websites, Simplified <br />+ Much Much More!</p>
 			</div>
 			
 			<div class="footer-widgets">
@@ -77,7 +77,7 @@
 
 		</div><!-- .site-info -->
 	</div><!-- #page -->
-	<a class="chat-message" href="#" >Have any questions? We're happy to help.</a>
+	<a class="chat-message">Have any questions? Hit us up!</a>
 
 	<?php wp_footer(); ?>
 

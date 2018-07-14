@@ -24,6 +24,13 @@
 		"oAP": "\/404.php",
 		"oF": 0
 		},
+	"\/archive-seoqa.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/archive-seoqa.php",
+		"oF": 0
+		},
 	"\/archive.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -111,13 +118,43 @@
 		},
 	"\/images\/bg.jpg": {
 		"ft": 16384,
-		"iS": 4052348,
+		"iS": 29200,
 		"oA": 0,
 		"oAP": "\/images\/bg.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
+		},
+	"\/images\/bolt.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/images\/bolt.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/images\/flauntsiteslogo.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/images\/flauntsiteslogo.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/images\/globe.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/images\/globe.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"\/images\/launch.svg": {
 		"ft": 2097152,
@@ -214,6 +251,13 @@
 		"oAP": "\/inc\/jetpack.php",
 		"oF": 0
 		},
+	"\/inc\/pricing-breakdown.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/inc\/pricing-breakdown.php",
+		"oF": 0
+		},
 	"\/inc\/template-tags.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -234,6 +278,16 @@
 		"oA": 2,
 		"oAP": "\/index.php",
 		"oF": 0
+		},
+	"\/js\/customizer-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/customizer-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
 		},
 	"\/js\/customizer.js": {
 		"ft": 64,
@@ -261,6 +315,26 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/data-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/DrawSVGPlugin.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/DrawSVGPlugin.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/header-min-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/header-min-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -305,12 +379,32 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/js\/home-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/home-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/js\/home.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/home-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/navigation-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/navigation-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -341,6 +435,46 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/js\/plan-fix-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/ScrollToPlugin.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/ScrollToPlugin.min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/single-themes-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/single-themes-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/single-themes.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/single-themes-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/js\/skip-link-focus-fix-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/skip-link-focus-fix-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -431,6 +565,13 @@
 		"oAP": "\/partners.php",
 		"oF": 0
 		},
+	"\/README.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/README.html",
+		"oF": 0
+		},
 	"\/README.md": {
 		"cB": 0,
 		"cS": 0,
@@ -455,6 +596,16 @@
 		"oA": 2,
 		"oAP": "\/readme.txt",
 		"oF": 0
+		},
+	"\/rtl-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/rtl-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/rtl.css": {
 		"aP": 1,
@@ -865,7 +1016,7 @@
 		"ma": 0,
 		"oA": 0,
 		"oAP": "\/style.css",
-		"oF": 3,
+		"oF": 1,
 		"oS": 0,
 		"uL": 1
 		},
@@ -990,6 +1141,13 @@
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/single-seoqa.php",
+		"oF": 0
+		},
+	"\/single-themes.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/single-themes.php",
 		"oF": 0
 		},
 	"\/single-tutorials.php": {

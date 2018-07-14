@@ -7,9 +7,8 @@ const redline = function () {
     const tl = new TimelineMax({ paused: true });
     tl.from(dial, .5, { transformOrigin: '32 32', rotation: -240 })
     // .to(dial, .3, { transformOrigin: '32 32', rotation: -25, yoyo: true, repeat: 5, ease: Back.easeOut.config(2) })
-    console.log(speedometer.parentElement)
 
-    speedometer.parentElement.parentElement.addEventListener("mouseover", function () {
+    speedometer.parentElement.parentElement.addEventListener("mouseenter", function () {
         tl.play(0)
     })
     speedometer.parentElement.parentElement.addEventListener("mouseleave", function () {
@@ -24,14 +23,21 @@ const security = function () {
     const gearOne = document.querySelector('#gear-one');
     const gearTwo = document.querySelector('#gear-two');
     const gearThree = document.querySelector('#gear-three');
-    const lock = document.querySelector('#lock');
+    // const lock = document.querySelector('#lock');
 
-    const tl = new TimelineMax({ repeat: -1 });
+    const tl = new TimelineMax({ paused: true });
     tl.to(gearOne, 10, { transformOrigin: '50% 50%', rotation: '-360', ease: Power0.easeNone }, '-=10')
     tl.to(gearTwo, 10, { transformOrigin: '50% 50%', rotation: '360', ease: Power0.easeNone }, '-=10')
     tl.to(gearThree, 10, { transformOrigin: '50% 50%', rotation: '-360', ease: Power0.easeNone }, '-=10')
-    tl.to(clasp, .5, { scaleY: 15, ease: Elastic.easeOut.config(2.5, 1) }, '4')
-    tl.to([clasp, lock], .5, { fill: 'green' }, '4.3')
+    // tl.to(clasp, .5, { scaleY: 15, ease: Elastic.easeOut.config(2.5, 1) }, '4')
+    // tl.to([clasp, lock], .5, { fill: 'green' }, '4.3')
+
+    gearOne.parentElement.parentElement.addEventListener("mouseenter", function () {
+        tl.play(0)
+    })
+    gearOne.parentElement.parentElement.addEventListener("mouseleave", function () {
+        tl.pause()
+    })
 
 }
 
@@ -101,3 +107,22 @@ const flash = function () {
 }
 flash()
 
+
+
+const horizontalRain = function () {
+
+    const words = document.querySelectorAll('.horizontal-rain');
+    words.forEach(function (word) {
+
+        const tl = new TimelineMax({ repeat: -1 })
+        const speed = Math.floor(Math.random() * 150)
+        const height = Math.floor(Math.random() * 80)
+        const fontSize = Math.floor(Math.random() * 200)
+
+        tl.set(word, { top: height + 'vh', fontSize: fontSize })
+            .to(word, speed, { transform: "translateX(180vw)" })
+
+    })
+
+}
+horizontalRain();

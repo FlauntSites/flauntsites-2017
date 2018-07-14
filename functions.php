@@ -100,18 +100,23 @@ function flauntsites2017_scripts() {
 	//Adds Swiper Slider Scripts
 	wp_enqueue_script( 'swiper_scripts', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js', array(), '20180522', false );
 
+
+	//Adds Scrollmagik Support
+	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array('jquery'), '20180711');
+	// wp_enqueue_script( 'scrollmagic_indicators', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array(), '20180711' );
+	wp_enqueue_script( 'scrollmagic_gsap_support', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array('jquery'), '20180711');
+
 	//Adds Greensock Support
+	wp_enqueue_script( 'greensock_drawSVG', get_template_directory_uri() . '/js/DrawSVGPlugin.min.js', array('jquery'), '20180522', true );
+	wp_enqueue_script( 'greensock_smooth_scroll_to', get_template_directory_uri() . '/js/ScrollToPlugin.min', array('jquery'), '20180522', true );
 	wp_enqueue_script( 'greensock', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', true);  
 
-	//Adds Scrollmagik support
-	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array('jquery'), '20180522' );
-	wp_enqueue_script( 'scrollmagic_indicators', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js', array(), '20180522' );
-	wp_enqueue_script( 'scrollmagic_gsap_support', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array('jquery'), '20180522' );
-
-
-	wp_enqueue_script( 'flauntsites2017-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
-	wp_enqueue_script( 'plan-fix', get_template_directory_uri() . '/js/plan-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'flauntsites2017-header', get_template_directory_uri() . '/js/header.js', array(), '20180619', true );
 	
+	if ( is_page( 'pricing' ) ){
+		wp_enqueue_script( 'plan-fix', get_template_directory_uri() . '/js/plan-fix.js', array(), '20151215', true );
+	}
+
 	if ( is_front_page() ){
 		wp_enqueue_script( 'flauntsites2017-hero', get_template_directory_uri() . '/js/hero-min.js', array(), '20151215', true );
 		wp_enqueue_script( 'flauntsites2017-home', get_template_directory_uri() . '/js/home-min.js', array(), '20180618', true );
@@ -120,6 +125,10 @@ function flauntsites2017_scripts() {
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+
+	if ( 'themes' == get_post_type() ){
+		wp_enqueue_script( 'flauntsites2017-themes', get_template_directory_uri() . '/js/single-themes.js', array(), '20180618', true );
 	}
 
 	wp_enqueue_style('googleFonts','https://fonts.googleapis.com/css?family=Julius+Sans+One|Nunito+Sans:700|Roboto:100i,300,300i,400,400i|Trirong:400,500,600,800,900');
@@ -173,6 +182,9 @@ require get_template_directory() . '/inc/competitor-list.php';
 // }
 
 
+
+
+
 /**
  * Sets up the SEO Q+A Post Type
  * 
@@ -197,7 +209,7 @@ function fs_seo_qa_post_type() {
 			'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is the example SEO Q+A', 'flaunt_sites_core' ), /* Custom Type Description */
+			'description' => __( '', 'flaunt_sites_core' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => true,
@@ -274,7 +286,6 @@ add_action( 'init', 'fs_seo_qa_post_type');
 	add_action( 'init', 'fs_themes_post_type');
 	
 	
-
 
 /**
  * Sets up the Competitors Post Type
@@ -588,3 +599,17 @@ function fsc_res_bg_img( $image ){
 	echo wp_get_attachment_image( $image['ID'], $size, false, array( 'alt' => $image['alt'] ) );  
 
 }
+
+
+/**
+ * 
+ * Adds a photo credit to image card on home page.
+ * 
+ */
+
+function photo_credit( $name, $url ){ ?>
+
+	<span class="photo-credit">Photo by: <a href="<?php the_field( $url ); ?>"><?php the_field( $name ); ?></a></span>
+
+<?php }
+

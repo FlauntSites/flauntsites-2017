@@ -21,56 +21,55 @@ get_header(); ?>
 
 		<div class="responsive-bg">
 
-			<?php fsc_res_bg_img( 'section1_background_image' ); ?>
+			<?php fsc_res_bg_img( 'hero_background_image' ); ?>
 		
 		</div>
 
-		<div class="hero-cta">
+		<div class="hero-cta up"> 
 
 			<div class="cta-message">
-				<h1><?php the_field( 'hero_h1' ); ?></h1>
-				<h2><?php the_field( 'hero_h2' ); ?></h2>
+				<h1><?php the_field( 'hero_header' ); ?></h1>
+				<?php the_field( 'hero_text' ); ?>
 			</div>
-
-			<button class="btn-open" id="hero-video">Find Out More</button>
-			<a class="btn-solid" href="<?php the_field( 'cta_button_2_link' ); ?>"><?php the_field( 'cta_button_2_text' ); ?></a>
-
+			<a href="/pricing" class="btn-open">Sign Up</a>
+			<!-- <button class="btn-open" id="hero-video">Find Out More</button> -->
+			<!-- <a class="btn-solid" href="<?php the_field( 'cta_button_2_link' ); ?>"><?php the_field( 'cta_button_2_text' ); ?></a> -->
 		</div>	
 
 		<div class="scroll-button"></div>
-
+		<?php photo_credit( 'section1_photo_credit', 'section1_photo_credit_url'); ?>
 	</section>
 
 
 
 	<section id="what-we-do" >
 
-		<header class="white">
+		<header class="white neutral">
 			<h2><?php the_field( 'section2_title' ); ?></h2>
 			<?php the_field( 'section2_text' ); ?>
 		</header>
 
 		<div class="wwd-grid">
 			<div>
-				<img src="wp-content/uploads/2017/10/default_DSC_0007-standard-base__1_.jpg">
+				<img src="https://flauntsites.com/wp-content/uploads/2018/07/padang-padang-mockup.jpg">
 			</div>	
 			<div class="wwd-matrix">
-				<div>
+				<a href="#speed">
 					<?php require( 'images/speedometer.svg' ); ?>
 					<p>Lightning Fast hosting</p>
-				</div>
-				<div>
+				</a>
+				<a href="#seo">
 					<?php require( 'images/seo.svg' ); ?>
 					<p>Built in SEO</p>
-				</div>
-				<div>
+				</a>
+				<a href="#themes">
 					<?php require( 'images/launch.svg' ); ?>
 					<p>Stunning Themes</p>
-				</div>
-				<div>
+				</a>
+				<a href="#security">
 					<?php require( 'images/security.svg' ); ?>
 					<p>Ft Knox Level Security</p>
-				</div>
+				</a>
 			</div>
 		</div>
 
@@ -82,29 +81,58 @@ get_header(); ?>
 		
 		<div class="tint"></div>
 		<div class="responsive-bg">
-			<?php fsc_res_bg_img( 'section3_background_image' ); ?>
+			<?php fsc_res_bg_img( 'themes_background_image' ); ?>
 		</div>
 
-		<header class="white">
+		<header class="white neutral">
 			<h2><?php the_field( 'themes_title' ); ?></h2>
 			<?php the_field( 'themes_text' ); ?>
 		</header>
 
 		<?php get_template_part( 'theme-carousel' ); ?>
-
+		<?php photo_credit( 'themes_photo_credit', 'themes_photo_credit_url'); ?>
 	</section>
 	
 
-	<section id="seo">
+	<section id="who-we-serve">
+		<header class="white neutral">
+			<h2><?php the_field( 'who_title' ); ?></h2>
+			<?php the_field( 'who_text' ); ?>
+		</header>
 
-		<header class="white">
+		<div class="rain-div">
+			<span class="horizontal-rain white">Architectural</span>
+			<span class="horizontal-rain white">Aerial</span>
+			<span class="horizontal-rain white">Fashion</span>
+			<span class="horizontal-rain white">Fine-art</span>
+			<span class="horizontal-rain white">Food</span>
+			<span class="horizontal-rain white">Lifestyle</span>
+			<span class="horizontal-rain white">Photojournalism</span>
+			<span class="horizontal-rain white">Portrait</span>
+			<span class="horizontal-rain white">Social documentary</span>
+			<span class="horizontal-rain white">Stock</span>
+			<span class="horizontal-rain white">Street</span>
+			<span class="horizontal-rain white">Travel</span>
+			<span class="horizontal-rain white">Wedding</span>
+		</div class="rain-div">
+
+	</section>
+
+
+	<section id="seo">
+		<div class="tint"></div>
+		<div class="responsive-bg">
+			<?php fsc_res_bg_img( 'seo_background_image' ); ?>
+		</div>
+
+		<header class="white neutral">
 			<h2><?php the_field( 'seo_title' ); ?></h2>
 			<?php the_field( 'seo_text' ); ?>
 		</header>
 
 		<div class="features">
 			<div>
-				<img src="https://flauntsites.local/wp-content/plugins/flaunt-sites-core/admin/images/support-screen.jpg" />
+				<img src="https://flauntsites.com/wp-content/plugins/flaunt-sites-core/admin/images/support-screen.jpg" />
 				<p>Easy to follow SEO Tutorials. Knowing is half the battle!</p>
 			</div>
 			<div>
@@ -112,23 +140,30 @@ get_header(); ?>
 				<p>Deep Technical SEO built into each theme.</p>
 			</div>
 			<div>
-				<img src="https://flauntsites.local/wp-content/uploads/2018/06/yoast-logo-icon-512x512.png" />
+				<img src="https://flauntsites.com/wp-content/uploads/2018/06/yoast-logo-icon-512x512.png" />
 				<p>Yoast SEO plugin installed and preconfigured.</p>
 			</div>
 		</div>
 
+	<?php photo_credit( 'seo_photo_credit', 'seo_photo_credit_url'); ?>
 	</section>
+
+	<!-- <section id="seo-color">
+
+		<header class="white neutral">
+			<h2><?php the_field( 'seo_title' ); ?></h2>
+			<?php the_field( 'seo_text' ); ?>
+		</header>
+
+	</section> -->
 
 	<section id="speed"> 
 		<div class="tint"></div>
-
 		<div class="responsive-bg">
-
-				<?php fsc_res_bg_img( 'section5_background_image' ); ?>
-			
+			<?php fsc_res_bg_img( 'speed_background_image' ); ?>
 		</div>
 
-		<header class="white">
+		<header class="white neutral">
 			<h2><?php the_field( 'speed_title' ); ?></h2>
 			<?php the_field( 'speed_text' ); ?>		
 		</header>
@@ -151,39 +186,58 @@ get_header(); ?>
 
 		</div>
 		
+		<?php photo_credit( 'speed_photo_credit', 'speed_photo_credit_url'); ?>
+	</section>
+
+
+	<section id="price-breakdown">
+
+		<header class="white neutral">
+			<h2><?php the_field( 'pricing_breakdown_title' ); ?></h2>
+			<?php the_field( 'pricing_breakdown_text' ); ?>				
+		</header>
+
+		<?php get_template_part( 'inc/pricing-breakdown' ); ?>
 
 	</section>
 
 
-	<section id="security-support">
+	<section id="security">
 
-		<header class="white">
+		<div class="tint"></div>
+		<div class="responsive-bg">
+			<?php fsc_res_bg_img( 'security_background_image' ); ?>
+		</div>
+
+		<header class="white neutral">
 			<h2><?php the_field( 'security_title' ); ?></h2>
 			<?php the_field( 'security_text' ); ?>				
 		</header>
 
 		<div class="features">
-			<div>
+			<div class="left">
 				<?php require( 'images/006-browser.svg' ); ?>
 				<p>Free SSL protects you and your clients.</p>
 			</div>
-			<div>
+			<div class="up">
 				<?php require( 'images/027-database-2.svg' ); ?>
 				<p>Daily backups, cause $#!* happens.</p>
 			</div>
-			<div>
+			<div class="right">
 				<?php require( 'images/web-maintenance.svg' ); ?>
 				<p>We keep everything up to date for you.</p>
 			</div>
 		</div>
 
-
+	<?php photo_credit( 'security_photo_credit', 'security_photo_credit_url'); ?>
 	</section>
+
+
 
 
 	<section id="partners">
 
-		<header class="white">
+		<header class="white neutral">
 			<h2><?php the_field( 'partner_title' ); ?></h2>
 			<?php the_field( 'partner_text' ); ?>
 		</header>
@@ -192,5 +246,8 @@ get_header(); ?>
 
 	</section>
 
+	<!-- <div class="cta-signup">
+
+	</div> -->
 
 	<?php get_footer(); ?>

@@ -16,10 +16,12 @@ $the_query = new WP_Query(
         <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
             <div class="swiper-slide">
-                <div class="theme-carousel-slide">
-                    <a href="<?php the_permalink( ); ?>"><?php the_post_thumbnail(); ?></a>
-                    <a href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a>
-                </div>
+
+                    <div class="theme-carousel-slide">
+                        <a href="<?php the_permalink( ); ?>"><?php the_post_thumbnail(); ?></a>
+                        <a href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a>
+                    </div>
+
             </div>
 
         <?php endwhile; ?>
