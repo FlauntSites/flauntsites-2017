@@ -32,7 +32,6 @@
 			<div class="identity">
 
 				<a href="<?php echo home_url( '/' ); ?>" title="Web design, Hosting and SEO for Professional Photographers" >
-					<!-- <img src="https://flauntsites.local/wp-content/uploads/2017/10/flauntsiteslogo.svg" /> -->
 					<?php require('images/flauntsiteslogo.svg'); ?>
 				</a>
 

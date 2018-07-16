@@ -17,8 +17,13 @@ come into play. Have fun!
     .inner-header{
         
         .identity{
+            max-width: 300px;
             width:300px;
         } 
+        .menu-main-menu-container{
+            position: initial;
+            height: initial;
+        }
     }
 }
 

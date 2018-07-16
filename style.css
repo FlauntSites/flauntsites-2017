@@ -1294,8 +1294,7 @@ a {
     border: 1px solid #d64b26; }
 
 /* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
+.menu-toggle {
   border: none;
   background: none;
   display: -webkit-box;
@@ -1311,19 +1310,50 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between; }
-  .menu-toggle .hamburger,
-  .main-navigation.toggled ul .hamburger {
+  .menu-toggle .hamburger {
     width: 30px;
     height: 32px; }
-  .menu-toggle:hover,
-  .main-navigation.toggled ul:hover {
+  .menu-toggle:hover {
     background: none; }
+
+.main-navigation.toggled ul {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start; }
+  .main-navigation.toggled ul li a {
+    font-family: 'Julius Sans One', sans-serif;
+    border: none; }
+    .main-navigation.toggled ul li a:hover {
+      border: none;
+      background: none; }
 
 @media screen and (min-width: 40em) {
   .menu-toggle {
     display: none; }
   .main-navigation ul {
-    display: block; } }
+    display: block; }
+  .menu-main-menu-container {
+    position: initial;
+    width: initial;
+    left: initial;
+    background-color: initial; } }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
@@ -1594,7 +1624,7 @@ section {
     z-index: 10;
     text-align: center;
     margin: 0 auto;
-    max-width: 60ch; }
+    max-width: 80ch; }
   section h1, section h2, section p {
     color: #fff; }
   section .photo-credit {
@@ -2090,7 +2120,7 @@ section {
           -webkit-filter: brightness(80%);
                   filter: brightness(80%); }
 
-.surf-break-modal {
+.wipe-modal {
   background: rgba(0, 0, 0, 0.75);
   width: 100vw;
   height: 100vh;
@@ -2117,7 +2147,11 @@ come into play. Have fun!
 
 ******************************************************************/
   .site-header .inner-header .identity {
+    max-width: 300px;
     width: 300px; }
+  .site-header .inner-header .menu-main-menu-container {
+    position: initial;
+    height: initial; }
   #hero .hero-cta {
     width: 35%;
     padding-right: 5%; }
