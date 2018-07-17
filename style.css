@@ -1321,8 +1321,7 @@ a {
   width: 100vw;
   height: 100vh;
   right: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.9);
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
