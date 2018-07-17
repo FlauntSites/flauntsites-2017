@@ -37,6 +37,36 @@ come into play. Have fun!
     }   
 }
 
+section{
+    header{
+        max-width: 80ch;
+    }
+}
+
+/**********************
+    SECTIONS
+***********************/
+
+
+#what-we-do{
+
+    .wwd-grid{
+
+        div{
+            width:40%;
+        }
+
+        .wwd-matrix{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 3em;
+            grid-row-gap: 1em;
+        }
+    }
+}
+
+
+
 /**********************
     PLANS GRID
 ***********************/
