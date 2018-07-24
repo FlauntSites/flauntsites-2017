@@ -250,7 +250,7 @@ h2 {
   font-size: 200%; }
 
 h3 {
-  font-size: 225%; }
+  font-size: 125%; }
 
 h4 {
   font-size: 150%; }
@@ -1718,7 +1718,9 @@ section {
         flex-wrap: wrap;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
-            justify-content: space-evenly; }
+            justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto; }
     #what-we-do .wwd-grid div {
       width: 100%; }
     #what-we-do .wwd-grid .wwd-matrix {
@@ -1828,7 +1830,7 @@ section {
   background-image: -webkit-gradient(linear, right top, left bottom, from(#360033), color-stop(#2e295c), color-stop(#014a7b), color-stop(#00698c), to(#0b8793));
   background-image: linear-gradient(to left bottom, #360033, #2e295c, #014a7b, #00698c, #0b8793); }
   #price-breakdown .price-grid {
-    width: 70%;
+    width: 95%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 0 auto;
@@ -1838,11 +1840,12 @@ section {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    text-align: center; }
+    text-align: center;
+    font-size: 90%; }
     #price-breakdown .price-grid .flaunt-price {
-      font-size: 200%; }
+      font-size: 150%; }
     #price-breakdown .price-grid .comp-price {
-      font-size: 225%;
+      font-size: 175%;
       font-weight: bold; }
     #price-breakdown .price-grid .braces {
       display: grid;
@@ -1857,7 +1860,7 @@ section {
         -ms-flex-item-align: center;
             align-self: center;
         justify-self: center;
-        font-size: 800%; }
+        font-size: 650%; }
       #price-breakdown .price-grid .braces ul {
         margin: 0;
         padding: 0;
@@ -1868,7 +1871,7 @@ section {
             -ms-flex-pack: center;
                 justify-content: center;
         list-style: none;
-        font-size: 125%; }
+        font-size: 100%; }
 
 #security {
   background: none; }
@@ -2178,6 +2181,18 @@ come into play. Have fun!
     grid-row-gap: 1em; }
   .flash-master-of-the-universe {
     grid-template-columns: 15% 85%; }
+  #price-breakdown .price-grid {
+    width: 70%;
+    font-size: initial; }
+    #price-breakdown .price-grid .flaunt-price {
+      font-size: 200%; }
+    #price-breakdown .price-grid .comp-price {
+      font-size: 225%;
+      font-weight: bold; }
+    #price-breakdown .price-grid .braces .big-brace {
+      font-size: 800%; }
+    #price-breakdown .price-grid .braces ul {
+      font-size: 125%; }
   /**********************
     PLANS GRID
 ***********************/

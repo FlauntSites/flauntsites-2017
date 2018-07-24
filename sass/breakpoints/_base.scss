@@ -269,6 +269,8 @@ section{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        width: 90%;
+        margin: 0 auto;
 
         div{
             width:100%;
@@ -386,19 +388,20 @@ section{
 
 
     .price-grid{
-        width: 70%;
+        width: 95%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0 auto;
         justify-content: center;
         align-items: center;
         text-align: center;
+        font-size: 90%;
 
         .flaunt-price{
-            font-size: 200%;
+            font-size: 150%;
         }
         .comp-price{
-            font-size: 225%;
+            font-size: 175%;
             font-weight: bold;
         }
 
@@ -411,7 +414,7 @@ section{
             .big-brace{
                 align-self: center;
                 justify-self: center;
-                font-size: 800%
+                font-size: 650%
             }
 
             ul{
@@ -420,7 +423,7 @@ section{
                 align-items: center;
                 justify-content: center;
                 list-style: none;
-                font-size:125%;
+                font-size:100%;
             }
         }
     }

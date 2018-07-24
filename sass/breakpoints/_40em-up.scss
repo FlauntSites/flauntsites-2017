@@ -70,6 +70,35 @@ section{
     grid-template-columns: 15% 85%;
 }
 
+
+#price-breakdown{
+
+    .price-grid{
+        width: 70%;
+        font-size: initial;
+
+        .flaunt-price{
+            font-size: 200%;
+        }
+        .comp-price{
+            font-size: 225%;
+            font-weight: bold;
+        }
+
+        .braces{
+            .big-brace{
+                font-size: 800%
+            }
+
+            ul{
+                font-size:125%;
+            }
+        }
+    }
+}
+
+
+
 /**********************
     PLANS GRID
 ***********************/
