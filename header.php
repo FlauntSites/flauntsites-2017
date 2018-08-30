@@ -32,14 +32,13 @@
 			<div class="identity">
 
 				<a href="<?php echo home_url( '/' ); ?>" title="Web design, Hosting and SEO for Professional Photographers" >
-					<!-- <img src="https://flauntsites.local/wp-content/uploads/2017/10/flauntsiteslogo.svg" /> -->
 					<?php require('images/flauntsiteslogo.svg'); ?>
 				</a>
 
 			</div>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i><?php esc_html_e( 'Menu', 'flauntsites2017' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><div class="hamburger"><?php require( 'images/menu-hamburger.svg' ); ?></div><?php esc_html_e( 'Menu', 'flauntsites2017' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
 

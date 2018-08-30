@@ -20,7 +20,7 @@ get_header(); ?>
 					<div class="theme-content white right">
 
 						<header>
-							<h1><?php the_title(); ?><a href="#" class="globe"><?php require( 'images/globe.svg' ); ?> </a></h1>
+							<h1><?php the_title(); ?><a href="#" class="globe wipe-target"><?php require( 'images/globe.svg' ); ?> </a></h1>
 
 							<?php if ( get_field('photos_provided_by' ) ) { ?>
 								<span class="thanks">Many thanks to <a href="<?php the_field( 'provided_by_link' ); ?>"><?php the_field('photos_provided_by'); ?></a> for the photography.</span>
@@ -37,7 +37,7 @@ get_header(); ?>
 		<?php endwhile; ?>
 
 	</div><!-- #primary -->
-	<div class="surf-break-modal">
+	<div class="wipe-modal">
 		
 	</div>
 

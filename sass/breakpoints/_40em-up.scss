@@ -12,35 +12,112 @@ come into play. Have fun!
 
 ******************************************************************/
 
+.site-header {
+  .inner-header {
+    .identity {
+      max-width: 300px;
+      width: 300px;
+    }
+    .menu-main-menu-container {
+      position: initial;
+      height: initial;
+    }
+  }
+}
 
-#hero{
-    .hero-cta{
-        width: 35%;
-        padding-right:5%; 
+#hero {
+  .hero-cta {
+    width: 35%;
+    padding-right: 5%;
+  }
+}
 
-    }   
+section {
+  header {
+    max-width: 80ch;
+  }
+}
+
+/**********************
+    SECTIONS
+***********************/
+
+#what-we-do {
+  .wwd-grid {
+    div {
+      width: 40%;
+    }
+
+    .wwd-matrix {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 3em;
+      grid-row-gap: 1em;
+    }
+  }
+}
+
+.flash-master-of-the-universe {
+  grid-template-columns: 15% 85%;
+}
+
+#price-breakdown {
+  .price-grid {
+    width: 70%;
+    font-size: initial;
+
+    .flaunt-price {
+      font-size: 200%;
+    }
+    .comp-price {
+      font-size: 225%;
+      font-weight: bold;
+    }
+
+    .braces {
+      .big-brace {
+        font-size: 800%;
+      }
+
+      ul {
+        font-size: 125%;
+      }
+    }
+  }
 }
 
 /**********************
     PLANS GRID
 ***********************/
 
-.wu-content-plan{
-    .plan-tier{
-        width:48%!important;
-    }
+.wu-content-plan {
+  .plan-tier {
+    width: 48% !important;
+  }
 }
 
 /**********************
     COMPETITOR GRID
 ***********************/
-.competitor-grid{
-    .competitor{
-        width: 48%;
-    }
+.competitor-grid {
+  .competitor {
+    width: 48%;
+  }
 }
 
+.site-info {
+  padding: 1em 7em;
+}
 
-.site-info{
-    padding: 1em 7em;
+/**********************
+    TUTORIALS
+***********************/
+article.tutorials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
