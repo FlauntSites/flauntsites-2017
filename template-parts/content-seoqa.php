@@ -19,21 +19,29 @@
 
 	<header class="entry-header">
 		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
 
-		if ( 'post' === get_post_type() ) : ?>
+		if ( is_single() ) :
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			else :
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			endif;
+
+			if ( 'post' === get_post_type() ) :
+				?>
+
 		<div class="entry-meta">
-			<?php flauntsites2017_posted_on(); ?>
+
+				<?php flauntsites2017_posted_on(); ?>
+
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( is_single() ) : { ?>
+	<?php
+	if ( is_single() ) : {
+		?>
+
 		<div class="entry-content">
 			<?php
 				the_content( sprintf(
@@ -66,16 +74,22 @@
 				}
 			}
 		</script>
-	<?php } else: { ?>
+
+		<?php
+		} else : {
+			?>
 
 		<footer class="entry-footer">
+
 			<div>
 				<p>Did this help you?</p>
 			</div>
-		<?php flauntsites2017_entry_footer(); ?>
+			<?php flauntsites2017_entry_footer(); ?>
+
 		</footer><!-- .entry-footer -->
 
-	<?php } ?>
+			<?php } ?>
+
 	<?php endif; ?>
 
 </article><!-- #post-## -->

@@ -4,7 +4,7 @@ Bitbucket Theme URI: https://FlauntYourSite@bitbucket.org/FlauntYourSite/flaunts
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.1.5
+Version: 0.1.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -2204,7 +2204,16 @@ come into play. Have fun!
   .competitor-grid .competitor {
     width: 48%; }
   .site-info {
-    padding: 1em 7em; } }
+    padding: 1em 7em; }
+  /**********************
+    TUTORIALS
+***********************/
+  article.tutorials {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    article.tutorials header {
+      grid-column-start: 1;
+      grid-column-end: 3; } }
 
 /*--------------------
 DESKTOP
@@ -2361,12 +2370,12 @@ object {
   display: block; }
 
 .orange {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: "Julius Sans One", sans-serif;
   color: #d64b26;
   float: left; }
 
 .white {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: "Julius Sans One", sans-serif;
   color: #fff; }
 
 .logo {
@@ -2376,13 +2385,16 @@ object {
 .page-id-16 .site-main {
   margin: 0 auto;
   line-height: 1;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   width: 80%;
   color: #fff;
   background: none;
   border: none; }
 
-div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .site-main {
+div#prosites-signup-form-checkout,
+.checkout-gateways,
+#psts_existing_info,
+.site-main {
   background-color: #fff;
   padding-top: 0;
   margin-top: 0; }
@@ -2397,14 +2409,17 @@ div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .sit
   font-size: 18px;
   color: #fff; }
 
-.prev-post, .next-post {
+.prev-post,
+.next-post {
   padding: 1em;
   background-color: #d64b26;
   border: 1px solid #ccc;
-  border-radius: .5em; }
-  .prev-post a, .next-post a {
+  border-radius: 0.5em; }
+  .prev-post a,
+  .next-post a {
     color: #fff; }
-    .prev-post a:hover, .next-post a:hover {
+    .prev-post a:hover,
+    .next-post a:hover {
       opacity: 0.75; }
 
 .prev-post {
@@ -2412,12 +2427,3 @@ div#prosites-signup-form-checkout, .checkout-gateways, #psts_existing_info, .sit
 
 .next-post {
   float: right; }
-
-@media screen and (min-width: 40em) {
-  .page-id-16 .site-main {
-    float: right;
-    margin-right: 15%;
-    font-family: 'Nunito Sans', sans-serif;
-    width: 20em; }
-  .vid-tut-col {
-    border-left: 1px solid #ccc; } }
