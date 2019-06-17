@@ -92,29 +92,16 @@ get_header(); ?>
 		<?php get_template_part( 'theme-carousel' ); ?>
 		<?php photo_credit( 'themes_photo_credit', 'themes_photo_credit_url'); ?>
 	</section>
-	
 
-	<section id="who-we-serve">
+
+	<section id="price-breakdown">
+
 		<header class="white neutral">
-			<h2><?php the_field( 'who_title' ); ?></h2>
-			<?php the_field( 'who_text' ); ?>
+			<h2><?php the_field( 'pricing_breakdown_title' ); ?></h2>
+			<?php the_field( 'pricing_breakdown_text' ); ?>				
 		</header>
 
-		<div class="rain-div">
-			<span class="horizontal-rain white">Architectural</span>
-			<span class="horizontal-rain white">Aerial</span>
-			<span class="horizontal-rain white">Fashion</span>
-			<span class="horizontal-rain white">Fine-art</span>
-			<span class="horizontal-rain white">Food</span>
-			<span class="horizontal-rain white">Lifestyle</span>
-			<span class="horizontal-rain white">Photojournalism</span>
-			<span class="horizontal-rain white">Portrait</span>
-			<span class="horizontal-rain white">Social documentary</span>
-			<span class="horizontal-rain white">Stock</span>
-			<span class="horizontal-rain white">Street</span>
-			<span class="horizontal-rain white">Travel</span>
-			<span class="horizontal-rain white">Wedding</span>
-		</div class="rain-div">
+		<?php get_template_part( 'inc/pricing-breakdown' ); ?>
 
 	</section>
 
@@ -148,14 +135,17 @@ get_header(); ?>
 	<?php photo_credit( 'seo_photo_credit', 'seo_photo_credit_url'); ?>
 	</section>
 
-	<!-- <section id="seo-color">
+
+	<section id="partners">
 
 		<header class="white neutral">
-			<h2><?php the_field( 'seo_title' ); ?></h2>
-			<?php the_field( 'seo_text' ); ?>
+			<h2><?php the_field( 'partner_title' ); ?></h2>
+			<?php the_field( 'partner_text' ); ?>
 		</header>
 
-	</section> -->
+		<?php get_template_part( 'partners' ); ?>
+
+	</section>	
 
 	<section id="speed"> 
 		<div class="tint"></div>
@@ -190,17 +180,6 @@ get_header(); ?>
 	</section>
 
 
-	<section id="price-breakdown">
-
-		<header class="white neutral">
-			<h2><?php the_field( 'pricing_breakdown_title' ); ?></h2>
-			<?php the_field( 'pricing_breakdown_text' ); ?>				
-		</header>
-
-		<?php get_template_part( 'inc/pricing-breakdown' ); ?>
-
-	</section>
-
 
 	<section id="security">
 
@@ -233,21 +212,5 @@ get_header(); ?>
 	</section>
 
 
-
-
-	<section id="partners">
-
-		<header class="white neutral">
-			<h2><?php the_field( 'partner_title' ); ?></h2>
-			<?php the_field( 'partner_text' ); ?>
-		</header>
-
-		<?php get_template_part( 'partners' ); ?>
-
-	</section>
-
-	<!-- <div class="cta-signup">
-
-	</div> -->
 
 	<?php get_footer(); ?>

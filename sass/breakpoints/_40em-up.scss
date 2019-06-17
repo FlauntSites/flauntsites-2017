@@ -29,12 +29,26 @@ come into play. Have fun!
   .hero-cta {
     width: 35%;
     padding-right: 5%;
+    .cta-message {
+      p {
+        display: inherit;
+      }
+    }
   }
 }
 
 section {
   header {
     max-width: 80ch;
+  }
+  padding-bottom: 0;
+}
+
+.features {
+  flex-direction: row;
+  div {
+    width: 18%;
+    text-align: center;
   }
 }
 
@@ -86,6 +100,14 @@ section {
   }
 }
 
+#partners {
+  .partner-carousel {
+    figure {
+      width: 60ch;
+    }
+  }
+}
+
 /**********************
     PLANS GRID
 ***********************/
@@ -120,4 +142,20 @@ article.tutorials {
     grid-column-start: 1;
     grid-column-end: 3;
   }
+}
+
+.site-footer {
+  .footer-widgets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .footer-identity {
+    width: 300px;
+  }
+}
+
+.site-info {
+  flex-direction: row;
 }
