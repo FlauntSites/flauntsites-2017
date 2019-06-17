@@ -19,7 +19,7 @@ $the_query = new WP_Query(
 
                     <div class="theme-carousel-slide">
                         <a href="<?php the_permalink( ); ?>"><?php the_post_thumbnail(); ?></a>
-                        <a href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a>
+                        <a class="carousel-theme-title" href="<?php the_permalink( ); ?>"><?php the_title( ); ?></a>
                     </div>
 
             </div>

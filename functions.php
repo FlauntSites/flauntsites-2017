@@ -72,7 +72,6 @@ if ( ! function_exists( 'flauntsites2017_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'flauntsites2017_setup' );
 
-
 /**
  * REMOVES WP EMOJI
  */
@@ -81,9 +80,6 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
-
-
-
 
 /**
  * Enqueue scripts and styles.
@@ -100,24 +96,21 @@ function flauntsites2017_scripts() {
 
 
 	// Adds Scrollmagik Support.
-	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js', array(), '20180711', true );
+	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array(), '20190523', false );
 	wp_enqueue_script( 'scrollmagic_gsap_support', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array(), '20180711', true );
 
 	// Adds Greensock Support.
 	wp_enqueue_script( 'greensock_drawSVG', get_template_directory_uri() . '/js/DrawSVGPlugin.min.js', array(), '20180522', true );
-	wp_enqueue_script( 'greensock_smooth_scroll_to', get_template_directory_uri() . '/js/ScrollToPlugin.min', array(), '20180522', true );
 	wp_enqueue_script( 'greensock', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js', array(), '20180522', true );
 
-	wp_enqueue_script( 'flauntsites2017-header', get_template_directory_uri() . '/js/header.js', array(), '20180619', true );
+	wp_enqueue_script( 'flauntsites2017-header', get_template_directory_uri() . '/js/header.js', array(), '20190522', true );
 
 	if ( is_page( 'pricing' ) ) {
 		wp_enqueue_script( 'plan-fix', get_template_directory_uri() . '/js/plan-fix.js', array(), '20151215', true );
 	}
 
 	if ( is_front_page() ) {
-		wp_enqueue_script( 'flauntsites2017-hero', get_template_directory_uri() . '/js/hero-min.js', array(), '20151215', true );
 		wp_enqueue_script( 'flauntsites2017-home', get_template_directory_uri() . '/js/home-min.js', array(), '20180618', true );
-
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
