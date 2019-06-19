@@ -4,7 +4,7 @@ Bitbucket Theme URI: https://github.com/FlauntSites/flauntsites-2017
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.2.1
+Version: 0.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -2037,32 +2037,6 @@ section {
   .wu-content-plan .wu-cta button {
     background: #d64b26;
     margin: 0 auto; }
-
-#plan-5:after,
-#plan-64:after,
-#plan-65:after {
-  content: "Coming Soon";
-  padding-top: 8em;
-  font-size: 150%;
-  color: #666;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-
-#plan-363 h5:after {
-  content: "_________";
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  margin-top: -20px;
-  font-size: 220%;
-  color: #d64b26; }
 
 /**********************
     COMPETITOR GRID
