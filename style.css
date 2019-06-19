@@ -4,7 +4,7 @@ GitHub Theme URI: https://github.com/FlauntSites/flauntsites-2017
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.2.3
+Version: 0.2.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -2009,7 +2009,6 @@ section {
     PLANS GRID
 ***********************/
 .plans {
-  padding: 0 !important;
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: flex !important;
@@ -2214,7 +2213,7 @@ come into play. Have fun!
     PLANS GRID
 ***********************/
   .wu-content-plan .plan-tier {
-    width: 48% !important; }
+    width: 60% !important; }
   /**********************
     COMPETITOR GRID
 ***********************/
@@ -2263,8 +2262,6 @@ be seen on the Desktop.
   /**********************
     PLANS GRID
 ***********************/
-  .wu-content-plan .plan-tier {
-    width: 30% !important; }
   /**********************
     COMPETITOR GRID
 ***********************/
