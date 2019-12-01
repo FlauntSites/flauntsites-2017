@@ -94,7 +94,6 @@ function flauntsites2017_scripts() {
 	// Adds Swiper Slider Scripts.
 	wp_enqueue_script( 'swiper_scripts', '//cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js', array(), '20180522', false );
 
-
 	// Adds Scrollmagik Support.
 	wp_enqueue_script( 'scrollmagic', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js', array(), '20190523', false );
 	wp_enqueue_script( 'scrollmagic_gsap_support', '//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js', array(), '20180711', true );
