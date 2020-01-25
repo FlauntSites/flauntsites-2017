@@ -162,208 +162,52 @@ require get_template_directory() . '/inc/competitor-list.php';
 
 
 
-// // Flush rewrite rules for custom post types
-// add_action( 'after_switch_theme', 'fscc_flush_rewrite_rules' );
 
-// // Flush your rewrite rules
-// function fscc_flush_rewrite_rules() {
-// 	flush_rewrite_rules();
-// }
+// Register Custom Post Type
+function custom_post_types() {
 
-
-
-
-
-/**
- * Sets up the SEO Q+A Post Type
- */
-function fs_seo_qa_post_type() {
-
-	register_post_type( 'seoqa',
-		array(
-			'labels'                => array(
-				'name'               => __( 'SEO Q+A', 'flaunt_sites_core' ), /* This is the Title of the Group */
-				'singular_name'      => __( 'SEO Q+A', 'flaunt_sites_core' ), /* This is the individual type */
-				'all_items'          => __( 'All Custom SEO Q+A', 'flaunt_sites_core' ), /* the all items menu item */
-				'add_new'            => __( 'Add New', 'flaunt_sites_core' ), /* The add new menu item */
-				'add_new_item'       => __( 'Add New SEO Q+A', 'flaunt_sites_core' ), /* Add New Display Title */
-				'edit'               => __( 'Edit', 'flaunt_sites_core' ), /* Edit Dialog */
-				'edit_item'          => __( 'Edit SEO Q+A', 'flaunt_sites_core' ), /* Edit Display Title */
-				'new_item'           => __( 'New SEO Q+A', 'flaunt_sites_core' ), /* New Display Title */
-				'view_item'          => __( 'View SEO Q+A', 'flaunt_sites_core' ), /* View Display Title */
-				'search_items'       => __( 'Search SEO Q+A', 'flaunt_sites_core' ), /* Search Custom Type Title */
-				'not_found'          => __( 'Nothing found in the Database.', 'flaunt_sites_core' ), /* This displays if there are no entries yet */
-				'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
-				'parent_item_colon'  => '',
-			), /* end of arrays */
-
-			'public'                => true,
-			'publicly_queryable'    => true,
-			'exclude_from_search'   => true,
-			'show_ui'               => true,
-			'query_var'             => true,
-			'menu_position'         => 7, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon'             => 'dashicons-format-chat', /* the icon for the custom post type menu */
-			'rewrite'               => array(
-				'slug'       => 'seo-qa',
-				'with_front' => true,
-			),
-			'has_archive'           => true, /* you can rename the slug here */
-			'capability_type'       => 'post',
-			'hierarchical'          => false,
-			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions'),
-			'show_in_rest'          => true,
-			'rest_base'             => 'seo-qa',
-			'rest_controller_class' => 'WP_REST_Posts_Controller',
-		)
-	);
-	register_taxonomy_for_object_type( 'category', 'seoqa' );
-
-}
-add_action( 'init', 'fs_seo_qa_post_type' );
-
-
-
-/**
- * Sets up the Themes Post Type
- */
-function fs_themes_post_type() {
-
-	register_post_type( 'themes',
-		array(
-			'labels'                =>
-				array(
-					'name'               => __( 'Themes', 'flaunt_sites_core' ), /* This is the Title of the Group */
-					'singular_name'      => __( 'Theme', 'flaunt_sites_core' ), /* This is the individual type */
-					'all_items'          => __( 'All Custom Themes', 'flaunt_sites_core' ), /* the all items menu item */
-					'add_new'            => __( 'Add New', 'flaunt_sites_core' ), /* The add new menu item */
-					'add_new_item'       => __( 'Add New Theme', 'flaunt_sites_core' ), /* Add New Display Title */
-					'edit'               => __( 'Edit', 'flaunt_sites_core' ), /* Edit Dialog */
-					'edit_item'          => __( 'Edit Theme', 'flaunt_sites_core' ), /* Edit Display Title */
-					'new_item'           => __( 'New Theme', 'flaunt_sites_core' ), /* New Display Title */
-					'view_item'          => __( 'View Theme', 'flaunt_sites_core' ), /* View Display Title */
-					'search_items'       => __( 'Search Themes', 'flaunt_sites_core' ), /* Search Custom Type Title */
-					'not_found'          => __( 'Nothing found in the Database.', 'flaunt_sites_core' ), /* This displays if there are no entries yet */
-					'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
-					'parent_item_colon'  => '',
-				), /* end of arrays */
-			'description'           => __( 'This is the example Theme', 'flaunt_sites_core' ), /* Custom Type Description */
-			'public'                => true,
-			'publicly_queryable'    => true,
-			'exclude_from_search'   => true,
-			'show_ui'               => true,
-			'query_var'             => true,
-			'menu_position'         => 7, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon'             => 'dashicons-welcome-widgets-menus', /* the icon for the custom post type menu */
-			'rewrite'               => array(
-				'slug'       => 'themes',
-				'with_front' => true,
-			), /* you can specify its url slug */
-			'has_archive'           => true, /* you can rename the slug here */
-			'capability_type'       => 'post',
-			'hierarchical'          => false,
-			/* the next one is important, it tells what's enabled in the post editor */
-			'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'revisions' ),
-			'show_in_rest'          => true,
-			'rest_base'             => 'themes',
-			'rest_controller_class' => 'WP_REST_Posts_Controller',
-		)
-	);
-	register_taxonomy_for_object_type( 'category', 'themes' );
-}
-add_action( 'init', 'fs_themes_post_type' );
-
-/**
- * Sets up the Competitors Post Type
- */
-function fs_competitor_post_type() {
-
-	register_post_type( 'competitors',
-		array(
-			'labels' => array(
-				'name'               => __( 'Competitors', 'flaunt_sites_core' ), /* This is the Title of the Group */
-				'singular_name'      => __( 'Competitor', 'flaunt_sites_core' ), /* This is the individual type */
-				'all_items'          => __( 'All Custom Competitors', 'flaunt_sites_core' ), /* the all items menu item */
-				'add_new'            => __( 'Add New', 'flaunt_sites_core' ), /* The add new menu item */
-				'add_new_item'       => __( 'Add New Competitor', 'flaunt_sites_core' ), /* Add New Display Title */
-				'edit'               => __( 'Edit', 'flaunt_sites_core' ), /* Edit Dialog */
-				'edit_item'          => __( 'Edit Competitor', 'flaunt_sites_core' ), /* Edit Display Title */
-				'new_item'           => __( 'New Competitor', 'flaunt_sites_core' ), /* New Display Title */
-				'view_item'          => __( 'View Competitor', 'flaunt_sites_core' ), /* View Display Title */
-				'search_items'       => __( 'Search Competitors', 'flaunt_sites_core' ), /* Search Custom Type Title */
-				'not_found'          => __( 'Nothing found in the Database.', 'flaunt_sites_core' ), /* This displays if there are no entries yet */
-				'not_found_in_trash' => __( 'Nothing found in Trash', 'flaunt_sites_core' ), /* This displays if there is nothing in the trash */
-				'parent_item_colon'  => '',
-			), /* end of arrays */
-			'description'           => __( 'This is the example Competitor', 'flaunt_sites_core' ), /* Custom Type Description */
-			'public'                => true,
-			'publicly_queryable'    => true,
-			'exclude_from_search'   => true,
-			'show_ui'               => true,
-			'query_var'             => true,
-			'menu_position'         => 7, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon'             => 'dashicons-welcome-view-site', /* the icon for the custom post type menu */
-			'rewrite'               => array( 'slug' => 'competitors', 'with_front' => true ), /* you can specify its url slug */
-			'has_archive'           => false, /* you can rename the slug here */
-			'capability_type'       => 'post',
-			'hierarchical'          => false,
-			/* the next one is important, it tells what's enabled in the post editor */
-			'supports'              => array( 'title', 'author', 'thumbnail', 'revisions' ),
-			'show_in_rest'          => true,
-			'rest_base'             => 'competitors',
-			'rest_controller_class' => 'WP_REST_Posts_Controller',
-		)
-	);
-}
-add_action( 'init', 'fs_competitor_post_type' );
-
-
-/**
- * Sets up the Tutorials Post Type
- */
-function fs_tutorials_post_type() {
-
+	// SEO Q&A.
 	$labels = array(
-		'name'                  => _x( 'Tutorials', 'Post Type General Name', 'text_domain' ),
-		'singular_name'         => _x( 'Tutorial', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'             => __( 'Tutorials', 'text_domain' ),
-		'name_admin_bar'        => __( 'Tutorial', 'text_domain' ),
-		'archives'              => __( 'Tutorial Archives', 'text_domain' ),
-		'attributes'            => __( 'Tutorial Attributes', 'text_domain' ),
-		'parent_item_colon'     => __( 'Parent Tutorial:', 'text_domain' ),
-		'all_items'             => __( 'All Tutorials', 'text_domain' ),
-		'add_new_item'          => __( 'Add New Tutorial', 'text_domain' ),
-		'add_new'               => __( 'Add New', 'text_domain' ),
-		'new_item'              => __( 'New Tutorial', 'text_domain' ),
-		'edit_item'             => __( 'Edit Tutorial', 'text_domain' ),
-		'update_item'           => __( 'Update Tutorial', 'text_domain' ),
-		'view_item'             => __( 'View Tutorial', 'text_domain' ),
-		'view_items'            => __( 'View Tutorials', 'text_domain' ),
-		'search_items'          => __( 'Search Tutorial', 'text_domain' ),
-		'not_found'             => __( 'Nothing here yet. How about adding some content?', 'text_domain' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-		'featured_image'        => __( 'Featured Image', 'text_domain' ),
-		'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
-		'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
-		'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
-		'insert_into_item'      => __( 'Insert into Tutorial', 'text_domain' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Tutorial', 'text_domain' ),
-		'items_list'            => __( 'Tutorials list', 'text_domain' ),
-		'items_list_navigation' => __( 'Tutorials list navigation', 'text_domain' ),
-		'filter_items_list'     => __( 'Filter Tutorials list', 'text_domain' ),
+		'name'                  => _x( 'SEO Q+A', 'Post Type General Name', 'flauntsites2017' ),
+		'singular_name'         => _x( 'SEO Q+A', 'Post Type Singular Name', 'flauntsites2017' ),
+		'menu_name'             => __( 'SEO Q+A', 'flauntsites2017' ),
+		'name_admin_bar'        => __( 'SEO Q+A', 'flauntsites2017' ),
+		'archives'              => __( 'SEO Q+A Archives', 'flauntsites2017' ),
+		'attributes'            => __( 'SEO Q+A Attributes', 'flauntsites2017' ),
+		'parent_item_colon'     => __( 'Parent SEO Q+A:', 'flauntsites2017' ),
+		'all_items'             => __( 'All SEO Q+A', 'flauntsites2017' ),
+		'add_new_item'          => __( 'Add New SEO Q+A', 'flauntsites2017' ),
+		'add_new'               => __( 'Add New', 'flauntsites2017' ),
+		'new_item'              => __( 'New SEO Q+A', 'flauntsites2017' ),
+		'edit_item'             => __( 'Edit SEO Q+A', 'flauntsites2017' ),
+		'update_item'           => __( 'Update SEO Q+A', 'flauntsites2017' ),
+		'view_item'             => __( 'View SEO Q+A', 'flauntsites2017' ),
+		'view_items'            => __( 'View SEO Q+A', 'flauntsites2017' ),
+		'search_items'          => __( 'Search SEO Q+A', 'flauntsites2017' ),
+		'not_found'             => __( 'Not found', 'flauntsites2017' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'flauntsites2017' ),
+		'featured_image'        => __( 'Featured Image', 'flauntsites2017' ),
+		'set_featured_image'    => __( 'Set featured image', 'flauntsites2017' ),
+		'remove_featured_image' => __( 'Remove featured image', 'flauntsites2017' ),
+		'use_featured_image'    => __( 'Use as featured image', 'flauntsites2017' ),
+		'insert_into_item'      => __( 'Insert into item', 'flauntsites2017' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'flauntsites2017' ),
+		'items_list'            => __( 'Items list', 'flauntsites2017' ),
+		'items_list_navigation' => __( 'Items list navigation', 'flauntsites2017' ),
+		'filter_items_list'     => __( 'Filter items list', 'flauntsites2017' ),
 	);
-
 	$args = array(
-		'label'                 => __( 'Tutorial', 'text_domain' ),
-		'description'           => __( 'Tutorials on Flaunt Sites', 'text_domain' ),
+		'label'                 => __( 'SEO Q+A', 'flauntsites2017' ),
+		'description'           => __( 'Post Type Description', 'flauntsites2017' ),
 		'labels'                => $labels,
-		'supports'              => array(),
-		'taxonomies'            => array( 'lessons' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'taxonomies'            => array( 'category' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
-		'menu_position'         => 10,
+		'menu_position'         => 7,
+		'menu_icon'             => 'dashicons-format-chat',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -372,38 +216,193 @@ function fs_tutorials_post_type() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 		'show_in_rest'          => true,
-		'rest_base'             => 'tutorials',
-		'rest_controller_class' => 'WP_REST_Posts_Controller',
+	);
+	register_post_type( 'seoqa', $args );
 
+	// Themes.
+	$labels = array(
+		'name'                  => _x( 'Themes', 'Post Type General Name', 'flauntsites2017' ),
+		'singular_name'         => _x( 'Theme', 'Post Type Singular Name', 'flauntsites2017' ),
+		'menu_name'             => __( 'Themes', 'flauntsites2017' ),
+		'name_admin_bar'        => __( 'Themes', 'flauntsites2017' ),
+		'archives'              => __( 'Theme Archives', 'flauntsites2017' ),
+		'attributes'            => __( 'Theme Attributes', 'flauntsites2017' ),
+		'parent_item_colon'     => __( 'Parent Theme:', 'flauntsites2017' ),
+		'all_items'             => __( 'All Themes', 'flauntsites2017' ),
+		'add_new_item'          => __( 'Add New Theme', 'flauntsites2017' ),
+		'add_new'               => __( 'Add New', 'flauntsites2017' ),
+		'new_item'              => __( 'New Theme', 'flauntsites2017' ),
+		'edit_item'             => __( 'Edit Theme', 'flauntsites2017' ),
+		'update_item'           => __( 'Update Theme', 'flauntsites2017' ),
+		'view_item'             => __( 'View Theme', 'flauntsites2017' ),
+		'view_items'            => __( 'View Themes', 'flauntsites2017' ),
+		'search_items'          => __( 'Search Themes', 'flauntsites2017' ),
+		'not_found'             => __( 'Not found', 'flauntsites2017' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'flauntsites2017' ),
+		'featured_image'        => __( 'Featured Image', 'flauntsites2017' ),
+		'set_featured_image'    => __( 'Set featured image', 'flauntsites2017' ),
+		'remove_featured_image' => __( 'Remove featured image', 'flauntsites2017' ),
+		'use_featured_image'    => __( 'Use as featured image', 'flauntsites2017' ),
+		'insert_into_item'      => __( 'Insert into item', 'flauntsites2017' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'flauntsites2017' ),
+		'items_list'            => __( 'Items list', 'flauntsites2017' ),
+		'items_list_navigation' => __( 'Items list navigation', 'flauntsites2017' ),
+		'filter_items_list'     => __( 'Filter items list', 'flauntsites2017' ),
+	);
+	$args = array(
+		'label'                 => __( 'Themes', 'flauntsites2017' ),
+		'description'           => __( 'Post Type Description', 'flauntsites2017' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'taxonomies'            => array( 'category' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 8,
+		'menu_icon'             => 'dashicons-welcome-widgets-menus',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'fs-themes', $args );
+
+	// Competitors.
+	$labels = array(
+		'name'                  => _x( 'Competitors', 'Post Type General Name', 'flauntsites2017' ),
+		'singular_name'         => _x( 'Competitor', 'Post Type Singular Name', 'flauntsites2017' ),
+		'menu_name'             => __( 'Competitors', 'flauntsites2017' ),
+		'name_admin_bar'        => __( 'Competitors', 'flauntsites2017' ),
+		'archives'              => __( 'Competitor Archives', 'flauntsites2017' ),
+		'attributes'            => __( 'Competitor Attributes', 'flauntsites2017' ),
+		'parent_item_colon'     => __( 'Parent Competitor:', 'flauntsites2017' ),
+		'all_items'             => __( 'All Competitors', 'flauntsites2017' ),
+		'add_new_item'          => __( 'Add New Competitor', 'flauntsites2017' ),
+		'add_new'               => __( 'Add New', 'flauntsites2017' ),
+		'new_item'              => __( 'New Competitor', 'flauntsites2017' ),
+		'edit_item'             => __( 'Edit Competitor', 'flauntsites2017' ),
+		'update_item'           => __( 'Update Competitor', 'flauntsites2017' ),
+		'view_item'             => __( 'View Competitor', 'flauntsites2017' ),
+		'view_items'            => __( 'View Competitors', 'flauntsites2017' ),
+		'search_items'          => __( 'Search Competitors', 'flauntsites2017' ),
+		'not_found'             => __( 'Not found', 'flauntsites2017' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'flauntsites2017' ),
+		'featured_image'        => __( 'Featured Image', 'flauntsites2017' ),
+		'set_featured_image'    => __( 'Set featured image', 'flauntsites2017' ),
+		'remove_featured_image' => __( 'Remove featured image', 'flauntsites2017' ),
+		'use_featured_image'    => __( 'Use as featured image', 'flauntsites2017' ),
+		'insert_into_item'      => __( 'Insert into item', 'flauntsites2017' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'flauntsites2017' ),
+		'items_list'            => __( 'Items list', 'flauntsites2017' ),
+		'items_list_navigation' => __( 'Items list navigation', 'flauntsites2017' ),
+		'filter_items_list'     => __( 'Filter items list', 'flauntsites2017' ),
+	);
+	$args = array(
+		'label'                 => __( 'Competitor', 'flauntsites2017' ),
+		'description'           => __( 'Post Type Description', 'flauntsites2017' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'taxonomies'            => array( 'category' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 9,
+		'menu_icon'             => 'dashicons-welcome-view-site',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'competitors', $args );
+
+	// Tutorials.
+	$labels = array(
+		'name'                  => _x( 'Tutorials', 'Post Type General Name', 'flauntsites2017' ),
+		'singular_name'         => _x( 'Tutorial', 'Post Type Singular Name', 'flauntsites2017' ),
+		'menu_name'             => __( 'Tutorials', 'flauntsites2017' ),
+		'name_admin_bar'        => __( 'Tutorials', 'flauntsites2017' ),
+		'archives'              => __( 'Tutorial Archives', 'flauntsites2017' ),
+		'attributes'            => __( 'Tutorial Attributes', 'flauntsites2017' ),
+		'parent_item_colon'     => __( 'Parent Tutorial:', 'flauntsites2017' ),
+		'all_items'             => __( 'All Tutorials', 'flauntsites2017' ),
+		'add_new_item'          => __( 'Add New Tutorial', 'flauntsites2017' ),
+		'add_new'               => __( 'Add New', 'flauntsites2017' ),
+		'new_item'              => __( 'New Tutorial', 'flauntsites2017' ),
+		'edit_item'             => __( 'Edit Tutorial', 'flauntsites2017' ),
+		'update_item'           => __( 'Update Tutorial', 'flauntsites2017' ),
+		'view_item'             => __( 'View Tutorial', 'flauntsites2017' ),
+		'view_items'            => __( 'View Tutorials', 'flauntsites2017' ),
+		'search_items'          => __( 'Search Tutorials', 'flauntsites2017' ),
+		'not_found'             => __( 'Not found', 'flauntsites2017' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'flauntsites2017' ),
+		'featured_image'        => __( 'Featured Image', 'flauntsites2017' ),
+		'set_featured_image'    => __( 'Set featured image', 'flauntsites2017' ),
+		'remove_featured_image' => __( 'Remove featured image', 'flauntsites2017' ),
+		'use_featured_image'    => __( 'Use as featured image', 'flauntsites2017' ),
+		'insert_into_item'      => __( 'Insert into item', 'flauntsites2017' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'flauntsites2017' ),
+		'items_list'            => __( 'Items list', 'flauntsites2017' ),
+		'items_list_navigation' => __( 'Items list navigation', 'flauntsites2017' ),
+		'filter_items_list'     => __( 'Filter items list', 'flauntsites2017' ),
+	);
+	$args = array(
+		'label'                 => __( 'Tutorial', 'flauntsites2017' ),
+		'description'           => __( 'Post Type Description', 'flauntsites2017' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'taxonomies'            => array( 'lessons' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 10,
+		'menu_icon'             => 'dashicons-welcome-view-site',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'post',
+		'show_in_rest'          => true,
 	);
 	register_post_type( 'tutorials', $args );
+
+	register_taxonomy( 'lessons',
+		array( 'tutorials' ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array(
+			'hierarchical'      => true,     /* if this is true, it acts like categories */
+			'labels'            => array(
+				'name'              => __( 'Lessons', 'bonestheme' ), /* name of the custom taxonomy */
+				'singular_name'     => __( 'Lesson', 'bonestheme' ), /* single taxonomy name */
+				'search_items'      => __( 'Search Lessons', 'bonestheme' ), /* search title for taxomony */
+				'all_items'         => __( 'All Lessons', 'bonestheme' ), /* all title for taxonomies */
+				'parent_item'       => __( 'Parent Lesson', 'bonestheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Lesson:', 'bonestheme' ), /* parent taxonomy title */
+				'edit_item'         => __( 'Edit Lesson', 'bonestheme' ), /* edit custom taxonomy title */
+				'update_item'       => __( 'Update Lesson', 'bonestheme' ), /* update title for taxonomy */
+				'add_new_item'      => __( 'Add New Lesson', 'bonestheme' ), /* add new title for taxonomy */
+				'new_item_name'     => __( 'New Lesson Name', 'bonestheme' ), /* name title for taxonomy */
+			),
+			'show_admin_column' => true,
+			'show_ui'           => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'lessons' ),
+		)
+	);
+
 }
-add_action( 'init', 'fs_tutorials_post_type', 0 );
-
-
-register_taxonomy( 'lessons',
-	array( 'tutorials' ), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-	array(
-		'hierarchical'      => true,     /* if this is true, it acts like categories */
-		'labels'            => array(
-			'name'              => __( 'Lessons', 'bonestheme' ), /* name of the custom taxonomy */
-			'singular_name'     => __( 'Lesson', 'bonestheme' ), /* single taxonomy name */
-			'search_items'      => __( 'Search Lessons', 'bonestheme' ), /* search title for taxomony */
-			'all_items'         => __( 'All Lessons', 'bonestheme' ), /* all title for taxonomies */
-			'parent_item'       => __( 'Parent Lesson', 'bonestheme' ), /* parent title for taxonomy */
-			'parent_item_colon' => __( 'Parent Lesson:', 'bonestheme' ), /* parent taxonomy title */
-			'edit_item'         => __( 'Edit Lesson', 'bonestheme' ), /* edit custom taxonomy title */
-			'update_item'       => __( 'Update Lesson', 'bonestheme' ), /* update title for taxonomy */
-			'add_new_item'      => __( 'Add New Lesson', 'bonestheme' ), /* add new title for taxonomy */
-			'new_item_name'     => __( 'New Lesson Name', 'bonestheme' ), /* name title for taxonomy */
-		),
-		'show_admin_column' => true,
-		'show_ui'           => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'lessons' ),
-	)
-);
-
+add_action( 'init', 'custom_post_types', 0 );
 
 
 
