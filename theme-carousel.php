@@ -2,7 +2,7 @@
 // the query
 $the_query = new WP_Query( 
     array(
-        'post_type' => 'themes' 
+        'post_type' => 'fs-themes' 
     )
 ); ?>
 
