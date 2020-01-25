@@ -4,7 +4,7 @@ GitHub Theme URI: https://github.com/FlauntSites/flauntsites-2017
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.3.0
+Version: 0.3.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -1993,7 +1993,7 @@ body.page {
   background-attachment: fixed;
 }
 
-body.single-themes {
+body.single-fs-themes {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#262829), color-stop(#005860), color-stop(#008d75), color-stop(#12c061), to(#a8eb12));
   background-image: linear-gradient(to right top, #262829, #005860, #008d75, #12c061, #a8eb12);
 }
