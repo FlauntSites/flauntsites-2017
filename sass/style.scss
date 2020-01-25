@@ -4,7 +4,7 @@ GitHub Theme URI: https://github.com/FlauntSites/flauntsites-2017
 Author: William Bay
 Author URI: http://flauntyoursite.com
 Description: Description.
-Version: 0.2.5
+Version: 0.2.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: flauntsites2017
@@ -108,14 +108,14 @@ BASE (MOBILE) SIZE
 TABLET & SMALLER LAPTOPS
 --------------------*/
 @media screen and (min-width: 40em) {
-  @import "breakpoints/40em-up";
+    @import "breakpoints/40em-up";
 } // end of media query
 
 /*--------------------
 DESKTOP
 --------------------*/
 @media screen and (min-width: 64em) {
-  @import "breakpoints/64em-up";
+    @import "breakpoints/64em-up";
 } // end of media query
 
 /*--------------------
@@ -123,16 +123,16 @@ LARGE VIEWING SIZE
 --------------------*/
 
 @media only screen and (min-width: 90.063em) {
-  @import "breakpoints/90em-up";
+    @import "breakpoints/90em-up";
 } // end of media query
 
 /*--------------------
 RETINA (2x RESOLUTION DEVICES)
 --------------------*/
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min--moz-device-pixel-ratio: 1.5),
-  only screen and (min-device-pixel-ratio: 1.5) {
-  @import "breakpoints/2x";
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-device-pixel-ratio: 1.5) {
+    @import "breakpoints/2x";
 } // end of media query
 
 /*--------------------------------------------------------------
@@ -141,72 +141,72 @@ RETINA (2x RESOLUTION DEVICES)
 @import "media/media";
 
 .orange {
-  font-family: "Julius Sans One", sans-serif;
-  color: #d64b26;
-  float: left;
+    font-family: "Julius Sans One", sans-serif;
+    color: #d64b26;
+    float: left;
 }
 
 .white {
-  font-family: "Julius Sans One", sans-serif;
-  color: #fff;
+    font-family: "Julius Sans One", sans-serif;
+    color: #fff;
 }
 
 .logo {
-  float: left;
-  width: 125px;
+    float: left;
+    width: 125px;
 }
 
 .page-id-16 .site-main {
-  margin: 0 auto;
-  line-height: 1;
-  font-family: "Nunito Sans", sans-serif;
-  width: 80%;
-  color: #fff;
-  background: none;
-  border: none;
+    margin: 0 auto;
+    line-height: 1;
+    font-family: "Nunito Sans", sans-serif;
+    width: 80%;
+    color: #fff;
+    background: none;
+    border: none;
 }
 
 div#prosites-signup-form-checkout,
 .checkout-gateways,
 #psts_existing_info,
 .site-main {
-  background-color: #fff;
-  padding-top: 0;
-  margin-top: 0;
+    background-color: #fff;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .fa-chevron-circle-left {
-  margin-right: 1em;
-  font-size: 18px;
-  color: #fff;
+    margin-right: 1em;
+    font-size: 18px;
+    color: #fff;
 }
 
 .fa-chevron-circle-right {
-  margin-left: 1em;
-  font-size: 18px;
-  color: #fff;
+    margin-left: 1em;
+    font-size: 18px;
+    color: #fff;
 }
 
 .prev-post,
 .next-post {
-  padding: 1em;
-  background-color: #d64b26;
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
+    padding: 1em;
+    background-color: #d64b26;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
 
-  a {
-    color: #fff;
+    a {
+        color: #fff;
 
-    &:hover {
-      opacity: 0.75;
+        &:hover {
+            opacity: 0.75;
+        }
     }
-  }
 }
 
 .prev-post {
-  float: left;
+    float: left;
 }
 
 .next-post {
-  float: right;
+    float: right;
 }
