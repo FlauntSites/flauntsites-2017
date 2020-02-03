@@ -14,7 +14,7 @@ get_header(); ?>
 				<div class="theme-grid">
 
 					<div class="theme-image left">
-						<?php the_post_thumbnail( 'large' ); ?>				
+						<?php the_post_thumbnail( 'tall' ); ?>				
 					</div>
 					
 					<div class="theme-content white right">
