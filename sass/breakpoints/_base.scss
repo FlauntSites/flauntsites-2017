@@ -132,7 +132,7 @@ Header
     position: absolute;
     z-index: 1000000;
     width: 100%;
-    top: 0;
+    top: auto;
 
     .inner-header {
         display: flex;
